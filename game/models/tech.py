@@ -1,112 +1,88 @@
-import json
+"""
+Modelo para tecnologias no jogo.
+"""
 
-class Technology:
-    def __init__(self, name, cost, prerequisites=None):
-        self.name = name
-        self.cost = cost
-        self.prerequisites = prerequisites if prerequisites else []
-        self.unlocks = []  # Unidades, edifícios, etc. que são desbloqueados
-        self.era = self._determine_era()
-        
-    def _determine_era(self):
-        """Determina a era da tecnologia com base no custo."""
-        if self.cost < 100:
-            return "Antiga"
-        elif self.cost < 250:
-            return "Clássica"
-        elif self.cost < 500:
-            return "Medieval"
-        elif self.cost < 1000:
-            return "Renascentista"
-        elif self.cost < 1500:
-            return "Industrial"
-        elif self.cost < 2000:
-            return "Moderna"
-        else:
-            return "Informação"
+class Tech:
+    """
+    Representa uma tecnologia na árvore tecnológica.
+    """
     
-    def is_available(self, researched_techs):
-        """Verifica se a tecnologia está disponível para pesquisa."""
-        if not self.prerequisites:
-            return True
+    def __init__(self, tech_id, data):
+        """
+        Inicializa uma tecnologia.
+        
+        Args:
+            tech_id (str): Identificador único da tecnologia.
+            data (dict): Dados da tecnologia.
+        """
+        self.id = tech_id
+        self.name = data.get('name', tech_id)
+        self.cost = data.get('cost', 0)
+        self.era = data.get('era', 'ancient')
+        self.description = data.get('description', '')
+        
+        # Requisitos
+        self.requires = data.get('requires', [])
+        
+        # O que esta tecnologia desbloqueia
+        self.unlocks_buildings = data.get('unlocks_buildings', [])
+        self.unlocks_units = data.get('unlocks_units', [])
+        self.unlocks_improvements = data.get('unlocks_improvements', [])
+        self.unlocks_resources = data.get('unlocks_resources', [])
+        
+        # Efeitos especiais
+        self.effects = data.get('effects', {})
+    
+    def can_research(self, researched_techs):
+        """
+        Verifica se esta tecnologia pode ser pesquisada.
+        
+        Args:
+            researched_techs (list): Lista de tecnologias já pesquisadas.
             
-        # Verifica se todos os pré-requisitos foram pesquisados
-        return all(prereq in [tech.name for tech in researched_techs] for prereq in self.prerequisites)
-
-
-class TechTree:
-    def __init__(self):
-        self.technologies = {}
-        self._load_tech_tree()
+        Returns:
+            bool: True se todos os pré-requisitos foram atendidos, False caso contrário.
+        """
+        if not self.requires:
+            return True
         
-    def _load_tech_tree(self):
-        """Carrega a árvore tecnológica a partir de um arquivo JSON."""
-        try:
-            with open('data/technologies.json', 'r') as f:
-                tech_data = json.load(f)
-                
-            for tech_name, data in tech_data.items():
-                tech = Technology(
-                    tech_name,
-                    data.get('cost', 100),
-                    data.get('prerequisites', [])
-                )
-                tech.unlocks = data.get('unlocks', [])
-                self.technologies[tech_name] = tech
-                
-        except (FileNotFoundError, json.JSONDecodeError):
-            # Se o arquivo não for encontrado, cria uma árvore tecnológica básica
-            self._create_basic_tech_tree()
+        for req in self.requires:
+            if req not in researched_techs:
+                return False
+        
+        return True
     
-    def _create_basic_tech_tree(self):
-        """Cria uma árvore tecnológica básica."""
-        # Era Antiga
-        self.technologies["agriculture"] = Technology("Agriculture", 50)
-        self.technologies["animal_husbandry"] = Technology("Animal Husbandry", 60)
-        self.technologies["mining"] = Technology("Mining", 60)
-        self.technologies["sailing"] = Technology("Sailing", 70)
-        self.technologies["pottery"] = Technology("Pottery", 50)
-        self.technologies["archery"] = Technology("Archery", 70, ["animal_husbandry"])
-        self.technologies["bronze_working"] = Technology("Bronze Working", 80, ["mining"])
+    def to_dict(self):
+        """
+        Converte a tecnologia para um dicionário.
         
-        # Era Clássica
-        self.technologies["writing"] = Technology("Writing", 120, ["pottery"])
-        self.technologies["masonry"] = Technology("Masonry", 110, ["mining"])
-        self.technologies["wheel"] = Technology("Wheel", 100, ["animal_husbandry"])
-        self.technologies["currency"] = Technology("Currency", 140, ["writing"])
-        self.technologies["horseback_riding"] = Technology("Horseback Riding", 130, ["animal_husbandry"])
-        self.technologies["iron_working"] = Technology("Iron Working", 150, ["bronze_working"])
-        
-        # Era Medieval
-        self.technologies["mathematics"] = Technology("Mathematics", 250, ["writing", "wheel"])
-        self.technologies["construction"] = Technology("Construction", 230, ["masonry"])
-        self.technologies["engineering"] = Technology("Engineering", 280, ["mathematics", "construction"])
-        self.technologies["metal_casting"] = Technology("Metal Casting", 270, ["iron_working"])
-        self.technologies["theology"] = Technology("Theology", 300, ["writing"])
-        
-        # Adiciona desbloqueios
-        self.technologies["archery"].unlocks = ["archer"]
-        self.technologies["animal_husbandry"].unlocks = ["pasture"]
-        self.technologies["mining"].unlocks = ["mine"]
-        self.technologies["bronze_working"].unlocks = ["spearman"]
-        self.technologies["iron_working"].unlocks = ["swordsman"]
-        self.technologies["horseback_riding"].unlocks = ["horseman"]
-        self.technologies["masonry"].unlocks = ["walls"]
-        self.technologies["pottery"].unlocks = ["granary"]
-        self.technologies["writing"].unlocks = ["library"]
-        self.technologies["wheel"].unlocks = ["water_mill"]
-        self.technologies["currency"].unlocks = ["market"]
+        Returns:
+            dict: Representação da tecnologia como dicionário.
+        """
+        return {
+            'id': self.id,
+            'name': self.name,
+            'cost': self.cost,
+            'era': self.era,
+            'description': self.description,
+            'requires': self.requires,
+            'unlocks_buildings': self.unlocks_buildings,
+            'unlocks_units': self.unlocks_units,
+            'unlocks_improvements': self.unlocks_improvements,
+            'unlocks_resources': self.unlocks_resources,
+            'effects': self.effects
+        }
     
-    def get_available_techs(self, researched_techs):
-        """Retorna todas as tecnologias disponíveis para pesquisa."""
-        available = []
-        for tech_name, tech in self.technologies.items():
-            # Verifica se a tecnologia já foi pesquisada
-            if tech_name in [t.name for t in researched_techs]:
-                continue
-                
-            # Verifica se a tecnologia está disponível
-            if tech.is_available(researched_techs):
-                available.append(tech)
-                
-        return available
+    @classmethod
+    def from_dict(cls, data):
+        """
+        Cria uma tecnologia a partir de um dicionário.
+        
+        Args:
+            data (dict): Dicionário com os dados da tecnologia.
+            
+        Returns:
+            Tech: Nova instância de Tech.
+        """
+        tech_id = data.pop('id')
+        return cls(tech_id, data)

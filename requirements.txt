@@ -1,0 +1,10 @@
+# Dependências principais
+colorama>=0.4.4
+pyyaml>=6.0
+numpy>=1.22.0
+
+# Dependências de desenvolvimento (opcional)
+pytest>=7.0.0
+pytest-cov>=3.0.0
+flake8>=4.0.0
+black>=22.1.0
