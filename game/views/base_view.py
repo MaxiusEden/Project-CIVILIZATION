@@ -1,118 +1,134 @@
 # game/views/base_view.py
-import curses
+import os
+import sys
 import logging
 
 class BaseView:
     """
-    Classe base para todas as visualizações do jogo.
+    Classe base para todas as visualizações.
     
-    Esta classe fornece funcionalidades comuns a todas as visualizações,
-    como renderização, manipulação de entrada e gerenciamento de janelas.
+    Fornece métodos comuns para exibição de informações e interação com o usuário.
     """
     
-    def __init__(self, stdscr):
-        """
-        Inicializa uma nova visualização.
-        
-        Args:
-            stdscr: Objeto de tela do curses.
-        """
-        self.stdscr = stdscr
-        self.height, self.width = stdscr.getmaxyx()
+    def __init__(self):
+        """Inicializa a visualização base."""
         self.logger = logging.getLogger(self.__class__.__name__)
-        
-    def clear(self):
-        """Limpa a tela."""
-        self.stdscr.clear()
-        
-    def refresh(self):
-        """Atualiza a tela."""
-        self.stdscr.refresh()
-        
-    def get_input(self):
-        """
-        Obtém entrada do usuário.
-        
-        Returns:
-            int: Código da tecla pressionada.
-        """
-        return self.stdscr.getch()
     
-    def add_str(self, y, x, text, attr=0):
+    def clear_screen(self):
+        """Limpa a tela do console."""
+        os.system('cls' if os.name == 'nt' else 'clear')
+    
+    def print_header(self, title):
         """
-        Adiciona uma string à tela na posição especificada.
+        Exibe um cabeçalho formatado.
         
         Args:
-            y (int): Coordenada Y (linha).
-            x (int): Coordenada X (coluna).
-            text (str): Texto a ser exibido.
-            attr: Atributos de exibição (cores, negrito, etc).
+            title (str): Título do cabeçalho.
+        """
+        width = 80
+        print("=" * width)
+        print(title.center(width))
+        print("=" * width)
+    
+    def print_menu(self, options):
+        """
+        Exibe um menu de opções.
+        
+        Args:
+            options (list): Lista de opções no formato (key, description).
             
         Returns:
-            bool: True se bem-sucedido, False se fora dos limites.
+            str: Opção selecionada pelo usuário.
         """
-        try:
-            if y < 0 or y >= self.height or x < 0:
-                self.logger.warning(f"Tentativa de escrever fora dos limites: ({x}, {y})")
-                return False
-                
-            # Trunca o texto se ele ultrapassar a largura da tela
-            max_length = self.width - x
-            if max_length <= 0:
-                return False
-                
-            if len(text) > max_length:
-                text = text[:max_length]
-                
-            self.stdscr.addstr(y, x, text, attr)
-            return True
-        except curses.error:
-            self.logger.error(f"Erro ao adicionar string: ({x}, {y}) '{text}'", exc_info=True)
-            return False
+        for key, description in options:
+            print(f"[{key}] {description}")
+        
+        print()
+        choice = input("Escolha uma opção: ")
+        return choice
     
-    def show_message(self, message, wait_for_key=True):
+    def print_message(self, message):
         """
-        Exibe uma mensagem centralizada na tela.
+        Exibe uma mensagem.
         
         Args:
             message (str): Mensagem a ser exibida.
-            wait_for_key (bool): Se True, aguarda o usuário pressionar uma tecla.
-            
-        Returns:
-            int or None: Código da tecla pressionada se wait_for_key=True, None caso contrário.
         """
-        self.clear()
-        lines = message.strip().split('\n')
-        start_y = (self.height - len(lines)) // 2
-        
-        for i, line in enumerate(lines):
-            start_x = (self.width - len(line)) // 2
-            self.add_str(start_y + i, start_x, line)
-            
-        if wait_for_key:
-            self.add_str(start_y + len(lines) + 2, (self.width - 36) // 2, 
-                        "Pressione qualquer tecla para continuar...")
-            self.refresh()
-            return self.get_input()
-        else:
-            self.refresh()
-            return None
+        print(message)
     
-    def create_window(self, height, width, y, x):
+    def print_error(self, message):
         """
-        Cria uma nova janela.
+        Exibe uma mensagem de erro.
         
         Args:
-            height (int): Altura da janela.
-            width (int): Largura da janela.
-            y (int): Coordenada Y do canto superior esquerdo.
-            x (int): Coordenada X do canto superior esquerdo.
+            message (str): Mensagem de erro a ser exibida.
+        """
+        print(f"ERRO: {message}")
+    
+    def wait_for_input(self, message="Pressione ENTER para continuar..."):
+        """
+        Aguarda entrada do usuário.
+        
+        Args:
+            message (str): Mensagem a ser exibida.
+        """
+        input(message)
+    
+    def get_input(self, prompt):
+        """
+        Obtém entrada do usuário.
+        
+        Args:
+            prompt (str): Mensagem de solicitação.
             
         Returns:
-            window: Objeto de janela do curses.
+            str: Entrada do usuário.
         """
-        try:
-            return curses.newwin(height, width, y, x)
-        except curses.error:
-            self.logger.error(f"Erro ao criar janela: {height}x{width} em ({x}, {y})", exc_info=True)
-            return None
+        return input(prompt)
+    
+    def get_int_input(self, prompt, min_value=None, max_value=None):
+        """
+        Obtém um número inteiro do usuário.
+        
+        Args:
+            prompt (str): Mensagem de solicitação.
+            min_value (int): Valor mínimo permitido.
+            max_value (int): Valor máximo permitido.
+            
+        Returns:
+            int: Número inteiro fornecido pelo usuário.
+        """
+        while True:
+            try:
+                value = int(input(prompt))
+                
+                if min_value is not None and value < min_value:
+                    print(f"O valor deve ser pelo menos {min_value}.")
+                    continue
+                
+                if max_value is not None and value > max_value:
+                    print(f"O valor deve ser no máximo {max_value}.")
+                    continue
+                
+                return value
+            except ValueError:
+                print("Por favor, digite um número inteiro válido.")
+    
+    def get_yes_no_input(self, prompt):
+        """
+        Obtém uma resposta sim/não do usuário.
+        
+        Args:
+            prompt (str): Mensagem de solicitação.
+            
+        Returns:
+            bool: True para sim, False para não.
+        """
+        while True:
+            response = input(f"{prompt} (s/n): ").lower()
+            if response in ['s', 'sim', 'y', 'yes']:
+                return True
+            elif response in ['n', 'não', 'nao', 'no']:
+                return False
+            else:
+                print("Por favor, responda com 's' ou 'n'.")
