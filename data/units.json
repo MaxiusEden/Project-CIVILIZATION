@@ -1,0 +1,65 @@
+{
+  "settler": {
+    "name": "Colonizador",
+    "cost": 80,
+    "maintenance": 1,
+    "movement": 2,
+    "combat_strength": 0,
+    "requires_tech": null,
+    "abilities": ["found_city"],
+    "description": "Funda novas cidades para expandir seu império."
+  },
+  "warrior": {
+    "name": "Guerreiro",
+    "cost": 40,
+    "maintenance": 1,
+    "movement": 2,
+    "combat_strength": 20,
+    "requires_tech": null,
+    "abilities": ["melee_attack"],
+    "description": "Unidade básica de combate corpo a corpo."
+  },
+  "archer": {
+    "name": "Arqueiro",
+    "cost": 60,
+    "maintenance": 1,
+    "movement": 2,
+    "combat_strength": 15,
+    "ranged_strength": 25,
+    "range": 2,
+    "requires_tech": "archery",
+    "abilities": ["ranged_attack"],
+    "description": "Unidade básica de ataque à distância."
+  },
+  "builder": {
+    "name": "Construtor",
+    "cost": 50,
+    "maintenance": 0,
+    "movement": 2,
+    "combat_strength": 0,
+    "requires_tech": null,
+    "abilities": ["build_improvement", "harvest_resource"],
+    "charges": 3,
+    "description": "Constrói melhorias no terreno para aumentar a produtividade."
+  },
+  "spearman": {
+    "name": "Lanceiro",
+    "cost": 65,
+    "maintenance": 1,
+    "movement": 2,
+    "combat_strength": 25,
+    "requires_tech": "bronze_working",
+    "abilities": ["melee_attack", "anti_cavalry"],
+    "description": "Eficaz contra unidades montadas."
+  },
+  "horseman": {
+    "name": "Cavaleiro",
+    "cost": 80,
+    "maintenance": 2,
+    "movement": 4,
+    "combat_strength": 30,
+    "requires_tech": "horseback_riding",
+    "abilities": ["melee_attack", "quick_movement"],
+    "description": "Unidade de cavalaria rápida para ataques e exploração."
+  }
+}

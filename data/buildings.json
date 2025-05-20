@@ -1,0 +1,76 @@
+{
+  "granary": {
+    "name": "Celeiro",
+    "cost": 60,
+    "maintenance": 1,
+    "requires_tech": "pottery",
+    "effects": {
+      "food": 2,
+      "housing": 2
+    },
+    "description": "Aumenta a produção de alimentos na cidade."
+  },
+  "monument": {
+    "name": "Monumento",
+    "cost": 50,
+    "maintenance": 1,
+    "requires_tech": null,
+    "effects": {
+      "culture": 2
+    },
+    "description": "Aumenta a produção cultural da cidade."
+  },
+  "library": {
+    "name": "Biblioteca",
+    "cost": 80,
+    "maintenance": 1,
+    "requires_tech": "writing",
+    "effects": {
+      "science": 2
+    },
+    "description": "Aumenta a produção científica da cidade."
+  },
+  "barracks": {
+    "name": "Quartel",
+    "cost": 70,
+    "maintenance": 1,
+    "requires_tech": "bronze_working",
+    "effects": {
+      "production_military": 0.25
+    },
+    "description": "Aumenta a produção de unidades militares."
+  },
+  "walls": {
+    "name": "Muralhas",
+    "cost": 100,
+    "maintenance": 1,
+    "requires_tech": "masonry",
+    "effects": {
+      "defense": 100
+    },
+    "description": "Fornece defesa adicional para a cidade."
+  },
+  "market": {
+    "name": "Mercado",
+    "cost": 90,
+    "maintenance": 1,
+    "requires_tech": "currency",
+    "effects": {
+      "gold": 3,
+      "trade_routes": 1
+    },
+    "description": "Aumenta a produção de ouro na cidade."
+  },
+  "water_mill": {
+    "name": "Moinho d'Água",
+    "cost": 70,
+    "maintenance": 1,
+    "requires_tech": "wheel",
+    "requires_river": true,
+    "effects": {
+      "food": 1,
+      "production": 1
+    },
+    "description": "Aumenta a produção de alimentos e produção em cidades próximas a rios."
+  }
+}
