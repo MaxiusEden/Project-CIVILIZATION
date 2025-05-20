@@ -1,10 +1,10 @@
 import curses
 import time
 import random
-from game.world import World
-from game.civilization import Civilization
+from game.models.world import World
+from game.models.civilization import Civilization
 from game.renderer import Renderer
-from game.diplomacy import Diplomacy
+from game.models.diplomacy import Diplomacy
 
 def main(stdscr):
     # Configuração inicial do curses
