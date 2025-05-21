@@ -73,71 +73,17 @@ python main.py --load meu_jogo
 
 ```
 Project-CIVILIZATION/
-│   config.py
-│   LICENSE
-│   main.py
-│   README.md
-│   requirements.txt
-│
-├───data/
-│   buildings.json
-│   city_states.json
-│   civilizations.json
-│   game_settings.json
-│   game_text.json
-│   great_people.json
-│   improvements.json
-│   policies.json
-│   promotions.json
-│   religions.json
-│   religious_beliefs.json
-│   resources.json
-│   technologies.json
-│   terrains.json
-│   ui_settings.json
-│   units.json
-│   wonders.json
-│
-├───game/
-│   __init__.py
-│
-│   ├───controllers/
-│   │   city_controller.py
-│   │   civ_controller.py
-│   │   game_controller.py
-│   │   unit_controller.py
-│   │   world_controller.py
-│   │   __init__.py
-│   │
-│   ├───gui/
-│   │   info_panel.py
-│   │   main_window.py
-│   │   map_view.py
-│   │   minimap_panel.py
-│   │   __init__.py
-│   │   # (adicione aqui outros painéis/diálogos conforme implementar)
-│   │
-│   ├───models/
-│   │   building.py
-│   │   city.py
-│   │   civilization.py
-│   │   diplomacy.py
-│   │   game_state.py
-│   │   tech.py
-│   │   unit.py
-│   │   world.py
-│   │   __init__.py
-│   │
-│   └───utils/
-│       data_loader.py
-│       logger.py
-│       perlin_noise.py
-│       save_manager.py
-│       __init__.py
-│
-├───logs/
-├───saves/
-└───tests/
+├── main.py                 # Arquivo principal do jogo
+├── game/                   # Módulos do jogo
+│   ├── controllers/        # Controladores
+│   ├── models/             # Modelos de dados
+│   └── views/              # Visualizações
+├── data/                   # Dados do jogo
+│   ├── buildings.json      # Dados de edifícios
+│   ├── civilizations.json  # Dados de civilizações
+│   ├── technologies.json   # Árvore de tecnologias
+│   └── units.json          # Dados de unidades
+└── saves/                  # Jogos salvos
 ```
 
 ## Licença
