@@ -75,16 +75,64 @@ python main.py --load meu_jogo
 ```
 Project-CIVILIZATION/
 ├── main.py                 # Arquivo principal do jogo
+├── config.py               # Arquivo de configurações do projeto
+├── requirements.txt        # Dependências do projeto
+├── LICENSE                 # Licença do projeto
+├── README.md               # Descrição e instruções
 ├── game/                   # Módulos do jogo
-│   ├── controllers/        # Controladores
-│   ├── models/             # Modelos de dados
-│   └── views/              # Visualizações
-├── data/                   # Dados do jogo
-│   ├── buildings.json      # Dados de edifícios
-│   ├── civilizations.json  # Dados de civilizações
-│   ├── technologies.json   # Árvore de tecnologias
-│   └── units.json          # Dados de unidades
-└── saves/                  # Jogos salvos
+│   ├── __init__.py
+│   ├── controllers/        # Controladores do jogo
+│   │   ├── __init__.py
+│   │   ├── city_controller.py
+│   │   ├── civ_controller.py
+│   │   ├── game_controller.py
+│   │   ├── unit_controller.py
+│   │   ├── world_controller.py
+│   ├── models/             # Modelos de dados do jogo
+│   │   ├── __init__.py
+│   │   ├── building.py
+│   │   ├── city.py
+│   │   ├── civilization.py
+│   │   ├── diplomacy.py
+│   │   ├── game_state.py
+│   │   ├── tech.py
+│   │   ├── unit.py
+│   │   ├── world.py
+│   ├── utils/              # Utilitários e ferramentas auxiliares
+│   │   ├── __init__.py
+│   │   ├── data_loader.py
+│   │   ├── logger.py
+│   │   ├── perlin_noise.py
+│   │   ├── save_manager.py
+│   ├── views/              # Visualizações de interface
+│   │   ├── __init__.py
+│   │   ├── base_view.py
+│   │   ├── city_view.py
+│   │   ├── game_view.py
+│   │   ├── menu_view.py
+│   │   ├── tech_view.py
+│   │   ├── unit_view.py
+│   │   ├── world_view.py
+├── data/                   # Arquivos de dados do jogo
+│   ├── buildings.json
+│   ├── civilizations.json
+│   ├── city_states.json
+│   ├── game_settings.json
+│   ├── game_text.json
+│   ├── great_people.json
+│   ├── improvements.json
+│   ├── policies.json
+│   ├── promotions.json
+│   ├── religions.json
+│   ├── religious_beliefs.json
+│   ├── resources.json
+│   ├── technologies.json
+│   ├── terrains.json
+│   ├── ui_settings.json
+│   ├── units.json
+│   ├── Wonders.json
+└── saves/                  # Jogos salvos (sugestão de pasta futura se ainda não existir)
+
 ```
 
 ## Licença
