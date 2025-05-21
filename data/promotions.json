@@ -1,0 +1,148 @@
+{
+  "shock": {
+    "name": "Choque",
+    "description": "+15% de força de combate em terreno aberto (planícies, pastagens, deserto).",
+    "unit_types": ["melee", "mounted"],
+    "prerequisites": [],
+    "effects": {
+      "combat_bonus_open": 15
+    }
+  },
+  "drill": {
+    "name": "Treinamento",
+    "description": "+15% de força de combate em terreno acidentado (florestas, selvas, colinas).",
+    "unit_types": ["melee", "mounted"],
+    "prerequisites": [],
+    "effects": {
+      "combat_bonus_rough": 15
+    }
+  },
+  "barrage": {
+    "name": "Barragem",
+    "description": "+15% de força de combate ao atacar em terreno acidentado.",
+    "unit_types": ["ranged", "siege"],
+    "prerequisites": [],
+    "effects": {
+      "ranged_bonus_rough": 15
+    }
+  },
+  "volley": {
+    "name": "Salva",
+    "description": "+15% de força de combate ao atacar em terreno aberto.",
+    "unit_types": ["ranged", "siege"],
+    "prerequisites": [],
+    "effects": {
+      "ranged_bonus_open": 15
+    }
+  },
+  "accuracy": {
+    "name": "Precisão",
+    "description": "+15% de força de combate contra unidades.",
+    "unit_types": ["ranged", "siege"],
+    "prerequisites": ["barrage", "volley"],
+    "effects": {
+      "ranged_bonus_vs_units": 15
+    }
+  },
+  "cover": {
+    "name": "Cobertura",
+    "description": "+33% de defesa contra ataques à distância.",
+    "unit_types": ["melee", "mounted"],
+    "prerequisites": [],
+    "effects": {
+      "defense_vs_ranged": 33
+    }
+  },
+  "medic": {
+    "name": "Médico",
+    "description": "Esta unidade e todas as unidades adjacentes curam +1 HP adicional por turno.",
+    "unit_types": ["melee", "ranged", "mounted", "siege"],
+    "prerequisites": [],
+    "effects": {
+      "healing_bonus": 1,
+      "adjacent_healing": 1
+    }
+  },
+  "mobility": {
+    "name": "Mobilidade",
+    "description": "+1 de movimento.",
+    "unit_types": ["mounted", "recon"],
+    "prerequisites": [],
+    "effects": {
+      "movement_bonus": 1
+    }
+  },
+  "sentry": {
+    "name": "Sentinela",
+    "description": "+1 de visão.",
+    "unit_types": ["recon", "ranged"],
+    "prerequisites": [],
+    "effects": {
+      "sight_bonus": 1
+    }
+  },
+  "formation": {
+    "name": "Formação",
+    "description": "+33% de força de combate contra unidades montadas.",
+    "unit_types": ["melee"],
+    "prerequisites": [],
+    "effects": {
+      "combat_bonus_vs_mounted": 33
+    }
+  },
+  "blitz": {
+    "name": "Blitz",
+    "description": "Pode fazer um ataque adicional por turno.",
+    "unit_types": ["melee", "mounted"],
+    "prerequisites": ["shock", "drill"],
+    "effects": {
+      "extra_attack": 1
+    }
+  },
+  "march": {
+    "name": "Marcha",
+    "description": "Cura dano mesmo que a unidade tenha se movido ou atacado.",
+    "unit_types": ["melee", "ranged", "mounted"],
+    "prerequisites": ["shock", "drill", "barrage", "volley"],
+    "effects": {
+      "heal_after_action": true
+    }
+  },
+  "logistics": {
+    "name": "Logística",
+    "description": "Pode fazer um ataque adicional por turno.",
+    "unit_types": ["ranged", "siege"],
+    "prerequisites": ["accuracy"],
+    "effects": {
+      "extra_attack": 1
+    }
+  },
+  "siege": {
+    "name": "Cerco",
+    "description": "+50% de força de ataque contra cidades.",
+    "unit_types": ["siege"],
+    "prerequisites": [],
+    "effects": {
+      "combat_bonus_vs_cities": 50
+    }
+  },
+  "woodsman": {
+    "name": "Homem da Floresta",
+    "description": "Dobra o movimento em florestas e selvas.",
+    "unit_types": ["recon"],
+    "prerequisites": [],
+    "effects": {
+      "double_movement_forest": true,
+      "double_movement_jungle": true
+    }
+  },
+  "amphibious": {
+    "name": "Anfíbio",
+    "description": "Elimina a penalidade de combate ao atacar a partir da água ou através de um rio.",
+    "unit_types": ["melee", "mounted"],
+    "prerequisites": [],
+    "effects": {
+      "ignore_water_penalty": true
+    }
+  }
+}

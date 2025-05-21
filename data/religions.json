@@ -1,0 +1,82 @@
+{
+  "buddhism": {
+    "name": "Budismo",
+    "founder_belief_options": ["missionary_zeal", "religious_unity", "church_property", "initiation_rites"],
+    "follower_belief_options": ["asceticism", "divine_inspiration", "feed_the_world", "religious_community"],
+    "enhancer_belief_options": ["religious_texts", "reliquaries", "religious_unity", "holy_order"],
+    "building_options": ["pagoda", "monastery"],
+    "symbol": "☸",
+    "color": "#FFC107",
+    "description": "Uma religião baseada nos ensinamentos de Buda, focada na iluminação e no fim do sofrimento."
+  },
+  "christianity": {
+    "name": "Cristianismo",
+    "founder_belief_options": ["church_property", "tithe", "world_church", "papal_primacy"],
+    "follower_belief_options": ["cathedrals", "religious_community", "divine_inspiration", "feed_the_world"],
+    "enhancer_belief_options": ["just_war", "holy_order", "missionary_zeal", "religious_texts"],
+    "building_options": ["cathedral", "monastery"],
+    "symbol": "✝",
+    "color": "#2196F3",
+    "description": "Uma religião baseada nos ensinamentos de Jesus Cristo, focada no amor ao próximo e na salvação."
+  },
+  "hinduism": {
+    "name": "Hinduísmo",
+    "founder_belief_options": ["ceremonial_burial", "peace_loving", "sacred_waters", "fertility_rites"],
+    "follower_belief_options": ["divine_inspiration", "asceticism", "peace_gardens", "religious_community"],
+    "enhancer_belief_options": ["religious_texts", "religious_unity", "messiah", "holy_order"],
+    "building_options": ["mandira", "monastery"],
+    "symbol": "ॐ",
+    "color": "#FF5722",
+    "description": "Uma das religiões mais antigas do mundo, com foco no dharma, karma e reencarnação."
+  },
+  "islam": {
+    "name": "Islamismo",
+    "founder_belief_options": ["tithe", "pilgrimage", "church_property", "world_church"],
+    "follower_belief_options": ["religious_community", "mosques", "feed_the_world", "divine_inspiration"],
+    "enhancer_belief_options": ["holy_order", "just_war", "religious_texts", "religious_unity"],
+    "building_options": ["mosque", "monastery"],
+    "symbol": "☪",
+    "color": "#4CAF50",
+    "description": "Uma religião monoteísta baseada nos ensinamentos do profeta Maomé e no Alcorão."
+  },
+  "judaism": {
+    "name": "Judaísmo",
+    "founder_belief_options": ["church_property", "ceremonial_burial", "peace_loving", "tithe"],
+    "follower_belief_options": ["synagogues", "religious_community", "divine_inspiration", "feed_the_world"],
+    "enhancer_belief_options": ["religious_texts", "religious_unity", "messiah", "holy_order"],
+    "building_options": ["synagogue", "monastery"],
+    "symbol": "✡",
+    "color": "#9C27B0",
+    "description": "Uma das religiões monoteístas mais antigas, baseada na Torá e nas tradições judaicas."
+  },
+  "confucianism": {
+    "name": "Confucionismo",
+    "founder_belief_options": ["peace_loving", "ceremonial_burial", "ancestor_worship", "scholarly_tradition"],
+    "follower_belief_options": ["religious_community", "asceticism", "peace_gardens", "divine_inspiration"],
+    "enhancer_belief_options": ["religious_texts", "religious_unity", "messiah", "holy_order"],
+    "building_options": ["confucian_academy", "monastery"],
+    "symbol": "☯",
+    "color": "#795548",
+    "description": "Um sistema filosófico e ético baseado nos ensinamentos de Confúcio, focado na harmonia social."
+  },
+  "taoism": {
+    "name": "Taoísmo",
+    "founder_belief_options": ["peace_loving", "ceremonial_burial", "sacred_waters", "fertility_rites"],
+    "follower_belief_options": ["asceticism", "peace_gardens", "religious_community", "divine_inspiration"],
+    "enhancer_belief_options": ["religious_texts", "religious_unity", "messiah", "holy_order"],
+    "building_options": ["taoist_temple", "monastery"],
+    "symbol": "☯",
+    "color": "#607D8B",
+    "description": "Uma filosofia e religião chinesa que enfatiza a harmonia com o Tao, ou o caminho natural."
+  },
+  "zoroastrianism": {
+    "name": "Zoroastrismo",
+    "founder_belief_options": ["ceremonial_burial", "peace_loving", "sacred_waters", "fertility_rites"],
+    "follower_belief_options": ["divine_inspiration", "asceticism", "peace_gardens", "religious_community"],
+    "enhancer_belief_options": ["religious_texts", "religious_unity", "messiah", "holy_order"],
+    "building_options": ["fire_temple", "monastery"],
+    "symbol": "🔥",
+    "color": "#FF9800",
+    "description": "Uma das religiões mais antigas do mundo, focada na luta entre o bem e o mal."
+  }
+}

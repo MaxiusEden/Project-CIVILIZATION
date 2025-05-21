@@ -1,0 +1,138 @@
+{
+  "founder_beliefs": {
+    "church_property": {
+      "name": "Propriedade da Igreja",
+      "effect": "+2 de ouro para cada cidade seguindo esta religião",
+      "description": "As propriedades da igreja geram renda para o fundador da religião."
+    },
+    "tithe": {
+      "name": "Dízimo",
+      "effect": "+1 de ouro para cada 4 seguidores desta religião",
+      "description": "Os seguidores contribuem com uma parte de sua renda para o fundador da religião."
+    },
+    "world_church": {
+      "name": "Igreja Mundial",
+      "effect": "+1 de cultura para cada 5 seguidores desta religião em outras civilizações",
+      "description": "A influência cultural aumenta com a disseminação da religião."
+    },
+    "papal_primacy": {
+      "name": "Primazia Papal",
+      "effect": "+15 de influência com cidades-estado quando uma missão religiosa é enviada",
+      "description": "A autoridade religiosa é reconhecida pelas cidades-estado."
+    },
+    "pilgrimage": {
+      "name": "Peregrinação",
+      "effect": "+2 de fé para cada cidade seguindo esta religião que não foi fundada por você",
+      "description": "Os peregrinos viajam para os locais sagrados, trazendo fé."
+    },
+    "missionary_zeal": {
+      "name": "Zelo Missionário",
+      "effect": "Missionários têm +25% de força para espalhar a religião",
+      "description": "Os missionários são mais eficazes em espalhar a fé."
+    },
+    "ceremonial_burial": {
+      "name": "Enterro Cerimonial",
+      "effect": "+1 de felicidade para cada cidade seguindo esta religião",
+      "description": "Os rituais de enterro trazem conforto e felicidade aos seguidores."
+    },
+    "peace_loving": {
+      "name": "Pacifismo",
+      "effect": "+1 de felicidade para cada 8 seguidores desta religião em cidades não-ocupadas",
+      "description": "Os ensinamentos de paz trazem felicidade aos seguidores."
+    }
+  },
+  "follower_beliefs": {
+    "asceticism": {
+      "name": "Ascetismo",
+      "effect": "Santuários fornecem +1 de felicidade em cidades com 3 ou mais seguidores",
+      "description": "A vida simples e disciplinada traz felicidade aos seguidores."
+    },
+    "divine_inspiration": {
+      "name": "Inspiração Divina",
+      "effect": "Maravilhas fornecem +2 de fé",
+      "description": "As grandes maravilhas são vistas como manifestações divinas."
+    },
+    "feed_the_world": {
+      "name": "Alimentar o Mundo",
+      "effect": "Templos e Santuários fornecem +1 de comida",
+      "description": "Os edifícios religiosos ajudam a alimentar a população."
+    },
+    "religious_community": {
+      "name": "Comunidade Religiosa",
+      "effect": "+15% de produção em cidades com 3 ou mais seguidores",
+      "description": "A comunidade religiosa trabalha junta para aumentar a produtividade."
+    },
+    "cathedrals": {
+      "name": "Catedrais",
+      "effect": "Permite a construção de Catedrais (+3 de cultura, +1 de felicidade, 1 slot para Grande Obra)",
+      "description": "Impressionantes edifícios religiosos que inspiram cultura e felicidade."
+    },
+    "mosques": {
+      "name": "Mesquitas",
+      "effect": "Permite a construção de Mesquitas (+3 de fé, +2 de cultura, +1 de felicidade)",
+      "description": "Centros de adoração que promovem a fé e a cultura."
+    },
+    "pagodas": {
+      "name": "Pagodes",
+      "effect": "Permite a construção de Pagodes (+2 de fé, +2 de cultura, +2 de felicidade)",
+      "description": "Templos orientais que promovem harmonia e equilíbrio."
+    },
+    "synagogues": {
+      "name": "Sinagogas",
+      "effect": "Permite a construção de Sinagogas (+3 de fé, +2 de ciência, +1 de felicidade)",
+      "description": "Centros de estudo e adoração que promovem o conhecimento."
+    },
+    "monasteries": {
+      "name": "Mosteiros",
+      "effect": "Permite a construção de Mosteiros (+2 de fé, +2 de ciência, +1 de cultura)",
+      "description": "Centros de estudo e contemplação que preservam o conhecimento."
+    },
+    "peace_gardens": {
+      "name": "Jardins da Paz",
+      "effect": "Jardins fornecem +2 de felicidade",
+      "description": "Espaços tranquilos para meditação e relaxamento."
+    }
+  },
+  "enhancer_beliefs": {
+    "religious_texts": {
+      "name": "Textos Religiosos",
+      "effect": "A religião se espalha 25% mais rápido (50% com Impressão)",
+      "description": "Os textos sagrados ajudam a disseminar a fé mais rapidamente."
+    },
+    "reliquaries": {
+      "name": "Relicários",
+      "effect": "Relíquias fornecem +2 de fé e +2 de turismo",
+      "description": "Os objetos sagrados atraem fiéis e visitantes."
+    },
+    "religious_unity": {
+      "name": "Unidade Religiosa",
+      "effect": "A religião se espalha para cidades 30% mais distantes",
+      "description": "A mensagem da fé viaja mais longe."
+    },
+    "holy_order": {
+      "name": "Ordem Sagrada",
+      "effect": "Missionários e Inquisidores custam 30% menos fé para comprar",
+      "description": "Ordens dedicadas à propagação da fé."
+    },
+    "just_war": {
+      "name": "Guerra Justa",
+      "effect": "+20% de força de combate perto de cidades que seguem esta religião",
+      "description": "A fé inspira os guerreiros a lutar com mais força."
+    },
+    "messiah": {
+      "name": "Messias",
+      "effect": "Grandes Profetas custam 25% menos fé e têm +25% de força para espalhar a religião",
+      "description": "A vinda do messias fortalece a fé."
+    },
+    "defender_of_faith": {
+      "name": "Defensor da Fé",
+      "effect": "+15% de força de combate em territórios amigáveis que seguem esta religião",
+      "description": "A defesa da fé inspira os guerreiros."
+    },
+    "itinerant_preachers": {
+      "name": "Pregadores Itinerantes",
+      "effect": "A religião se espalha para cidades 30% mais distantes",
+      "description": "Pregadores viajantes levam a mensagem da fé para longe."
+    }
+  }
+}

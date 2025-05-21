@@ -1,0 +1,122 @@
+{
+  "singapore": {
+    "name": "Singapura",
+    "type": "mercantile",
+    "trait": "Fornece recursos de luxo exclusivos quando aliado.",
+    "unique_unit": null,
+    "starting_techs": ["sailing", "pottery"],
+    "personality": "neutral",
+    "preferred_victory": null,
+    "description": "Uma cidade-estado mercantil que valoriza o comércio e a riqueza."
+  },
+  "geneva": {
+    "name": "Genebra",
+    "type": "cultural",
+    "trait": "Fornece bônus de cultura quando aliado.",
+    "unique_unit": null,
+    "starting_techs": ["writing", "calendar"],
+    "personality": "friendly",
+    "preferred_victory": null,
+    "description": "Uma cidade-estado cultural que valoriza as artes e a diplomacia."
+  },
+  "kabul": {
+    "name": "Cabul",
+    "type": "militaristic",
+    "trait": "Fornece unidades militares exclusivas quando aliado.",
+    "unique_unit": "afghan_pashtun",
+    "starting_techs": ["archery", "animal_husbandry"],
+    "personality": "aggressive",
+    "preferred_victory": null,
+    "description": "Uma cidade-estado militarista que valoriza a força e a conquista."
+  },
+  "brussels": {
+    "name": "Bruxelas",
+    "type": "cultural",
+    "trait": "Fornece bônus de cultura quando aliado.",
+    "unique_unit": null,
+    "starting_techs": ["writing", "calendar"],
+    "personality": "neutral",
+    "preferred_victory": null,
+    "description": "Uma cidade-estado cultural que valoriza as artes e a diplomacia."
+  },
+  "seoul": {
+    "name": "Seul",
+    "type": "scientific",
+    "trait": "Fornece bônus de ciência quando aliado.",
+    "unique_unit": null,
+    "starting_techs": ["writing", "mining"],
+    "personality": "friendly",
+    "preferred_victory": null,
+    "description": "Uma cidade-estado científica que valoriza o conhecimento e a inovação."
+  },
+  "vancouver": {
+    "name": "Vancouver",
+    "type": "maritime",
+    "trait": "Fornece bônus de comida quando aliado.",
+    "unique_unit": null,
+    "starting_techs": ["sailing", "fishing"],
+    "personality": "friendly",
+    "preferred_victory": null,
+    "description": "Uma cidade-estado marítima que valoriza a pesca e o comércio naval."
+  },
+  "budapest": {
+    "name": "Budapeste",
+    "type": "militaristic",
+    "trait": "Fornece unidades militares exclusivas quando aliado.",
+    "unique_unit": "hungarian_hussar",
+    "starting_techs": ["bronze_working", "horseback_riding"],
+    "personality": "neutral",
+    "preferred_victory": null,
+    "description": "Uma cidade-estado militarista que valoriza a força e a conquista."
+  },
+  "zurich": {
+    "name": "Zurique",
+    "type": "mercantile",
+    "trait": "Fornece recursos de luxo exclusivos quando aliado.",
+    "unique_unit": null,
+    "starting_techs": ["currency", "mining"],
+    "personality": "friendly",
+    "preferred_victory": null,
+    "description": "Uma cidade-estado mercantil que valoriza o comércio e a riqueza."
+  },
+  "hanoi": {
+    "name": "Hanói",
+    "type": "maritime",
+    "trait": "Fornece bônus de comida quando aliado.",
+    "unique_unit": null,
+    "starting_techs": ["sailing", "fishing"],
+    "personality": "aggressive",
+    "preferred_victory": null,
+    "description": "Uma cidade-estado marítima que valoriza a pesca e o comércio naval."
+  },
+  "lhasa": {
+    "name": "Lhasa",
+    "type": "religious",
+    "trait": "Fornece bônus de fé quando aliado.",
+    "unique_unit": null,
+    "starting_techs": ["pottery", "animal_husbandry"],
+    "personality": "friendly",
+    "preferred_victory": null,
+    "description": "Uma cidade-estado religiosa que valoriza a espiritualidade e a paz."
+  },
+  "monaco": {
+    "name": "Mônaco",
+    "type": "mercantile",
+    "trait": "Fornece recursos de luxo exclusivos quando aliado.",
+    "unique_unit": null,
+    "starting_techs": ["sailing", "currency"],
+    "personality": "neutral",
+    "preferred_victory": null,
+    "description": "Uma cidade-estado mercantil que valoriza o comércio e a riqueza."
+  },
+  "ragusa": {
+    "name": "Ragusa",
+    "type": "maritime",
+    "trait": "Fornece bônus de comida quando aliado.",
+    "unique_unit": null,
+    "starting_techs": ["sailing", "fishing"],
+    "personality": "friendly",
+    "preferred_victory": null,
+    "description": "Uma cidade-estado marítima que valoriza a pesca e o comércio naval."
+  }
+}

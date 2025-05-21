@@ -1,0 +1,184 @@
+{
+  "great_artists": {
+    "michelangelo": {
+      "name": "Michelangelo",
+      "era": "renaissance",
+      "abilities": ["create_great_work", "culture_bomb"],
+      "quote": "O maior perigo para a maioria de nós não é que nosso objetivo seja muito alto e nós o percamos, mas que seja muito baixo e nós o alcancemos."
+    },
+    "leonardo_da_vinci": {
+      "name": "Leonardo da Vinci",
+      "era": "renaissance",
+      "abilities": ["create_great_work", "culture_bomb"],
+      "quote": "A simplicidade é o último grau de sofisticação."
+    },
+    "vincent_van_gogh": {
+      "name": "Vincent van Gogh",
+      "era": "industrial",
+      "abilities": ["create_great_work", "culture_bomb"],
+      "quote": "Eu sonho com pintar e então eu pinto o meu sonho."
+    },
+    "pablo_picasso": {
+      "name": "Pablo Picasso",
+      "era": "modern",
+      "abilities": ["create_great_work", "culture_bomb"],
+      "quote": "Tudo o que você pode imaginar é real."
+    }
+  },
+  "great_scientists": {
+    "isaac_newton": {
+      "name": "Isaac Newton",
+      "era": "renaissance",
+      "abilities": ["discover_technology", "build_academy"],
+      "quote": "Se eu vi mais longe, foi por estar sobre ombros de gigantes."
+    },
+    "galileo_galilei": {
+      "name": "Galileo Galilei",
+      "era": "renaissance",
+      "abilities": ["discover_technology", "build_academy"],
+      "quote": "Não se pode ensinar nada a um homem; só é possível ajudá-lo a encontrar a coisa dentro de si."
+    },
+    "albert_einstein": {
+      "name": "Albert Einstein",
+      "era": "modern",
+      "abilities": ["discover_technology", "build_academy"],
+      "quote": "A imaginação é mais importante que o conhecimento."
+    },
+    "marie_curie": {
+      "name": "Marie Curie",
+      "era": "modern",
+      "abilities": ["discover_technology", "build_academy"],
+      "quote": "Nada na vida deve ser temido, apenas compreendido."
+    }
+  },
+  "great_engineers": {
+    "nikola_tesla": {
+      "name": "Nikola Tesla",
+      "era": "industrial",
+      "abilities": ["hurry_wonder", "build_manufactory"],
+      "quote": "Se você quiser descobrir os segredos do universo, pense em termos de energia, frequência e vibração."
+    },
+    "thomas_edison": {
+      "name": "Thomas Edison",
+      "era": "industrial",
+      "abilities": ["hurry_wonder", "build_manufactory"],
+      "quote": "Eu não falhei. Apenas descobri 10.000 maneiras que não funcionam."
+    },
+    "leonardo_da_vinci": {
+      "name": "Leonardo da Vinci",
+      "era": "renaissance",
+      "abilities": ["hurry_wonder", "build_manufactory"],
+      "quote": "A simplicidade é o último grau de sofisticação."
+    },
+    "gustave_eiffel": {
+      "name": "Gustave Eiffel",
+      "era": "industrial",
+      "abilities": ["hurry_wonder", "build_manufactory"],
+      "quote": "Posso projetar qualquer coisa, desde que seja triangular."
+    }
+  },
+  "great_merchants": {
+    "marco_polo": {
+      "name": "Marco Polo",
+      "era": "medieval",
+      "abilities": ["trade_mission", "build_customs_house"],
+      "quote": "Não contei metade do que vi, pois sabia que não acreditariam em mim."
+    },
+    "adam_smith": {
+      "name": "Adam Smith",
+      "era": "renaissance",
+      "abilities": ["trade_mission", "build_customs_house"],
+      "quote": "Não é da benevolência do açougueiro, do cervejeiro ou do padeiro que esperamos nosso jantar, mas da consideração que eles têm pelo seu próprio interesse."
+    },
+    "john_rockefeller": {
+      "name": "John D. Rockefeller",
+      "era": "industrial",
+      "abilities": ["trade_mission", "build_customs_house"],
+      "quote": "Se você quer ter sucesso, deve fazer seu negócio parecer um serviço."
+    },
+    "steve_jobs": {
+      "name": "Steve Jobs",
+      "era": "information",
+      "abilities": ["trade_mission", "build_customs_house"],
+      "quote": "Inovação distingue entre um líder e um seguidor."
+    }
+  },
+  "great_generals": {
+    "alexander_the_great": {
+      "name": "Alexandre, o Grande",
+      "era": "classical",
+      "abilities": ["combat_bonus", "build_citadel"],
+      "quote": "Não há nada impossível para aquele que tenta."
+    },
+    "napoleon_bonaparte": {
+      "name": "Napoleão Bonaparte",
+      "era": "industrial",
+      "abilities": ["combat_bonus", "build_citadel"],
+      "quote": "A morte não é nada, mas viver derrotado e sem glória é morrer todos os dias."
+    },
+    "sun_tzu": {
+      "name": "Sun Tzu",
+      "era": "classical",
+      "abilities": ["combat_bonus", "build_citadel"],
+      "quote": "A arte da guerra é subjugar o inimigo sem lutar."
+    },
+    "dwight_eisenhower": {
+      "name": "Dwight D. Eisenhower",
+      "era": "modern",
+      "abilities": ["combat_bonus", "build_citadel"],
+      "quote": "Planos são inúteis, mas planejamento é indispensável."
+    }
+  },
+  "great_admirals": {
+    "horatio_nelson": {
+      "name": "Horatio Nelson",
+      "era": "renaissance",
+      "abilities": ["naval_combat_bonus", "build_naval_base"],
+      "quote": "A Inglaterra espera que cada homem cumpra seu dever."
+    },
+    "yi_sun_sin": {
+      "name": "Yi Sun-sin",
+      "era": "renaissance",
+      "abilities": ["naval_combat_bonus", "build_naval_base"],
+      "quote": "Aqueles que procuram morrer viverão. Aqueles que procuram viver morrerão."
+    },
+    "alfred_thayer_mahan": {
+      "name": "Alfred Thayer Mahan",
+      "era": "industrial",
+      "abilities": ["naval_combat_bonus", "build_naval_base"],
+      "quote": "O controle do mar, por influência comercial ou poder militar, significa predominância no mundo."
+    },
+    "chester_nimitz": {
+      "name": "Chester W. Nimitz",
+      "era": "modern",
+      "abilities": ["naval_combat_bonus", "build_naval_base"],
+      "quote": "O sucesso de uma operação depende da simplicidade do plano, da velocidade da execução e da determinação dos líderes."
+    }
+  },
+  "great_prophets": {
+    "moses": {
+      "name": "Moisés",
+      "era": "ancient",
+      "abilities": ["found_religion", "enhance_religion", "spread_religion"],
+      "quote": "Deixe o meu povo ir."
+    },
+    "jesus_christ": {
+      "name": "Jesus Cristo",
+      "era": "classical",
+      "abilities": ["found_religion", "enhance_religion", "spread_religion"],
+      "quote": "Ame o próximo como a si mesmo."
+    },
+    "muhammad": {
+      "name": "Maomé",
+      "era": "medieval",
+      "abilities": ["found_religion", "enhance_religion", "spread_religion"],
+      "quote": "A tinta do estudioso é mais sagrada que o sangue do mártir."
+    },
+    "buddha": {
+      "name": "Buda",
+      "era": "ancient",
+      "abilities": ["found_religion", "enhance_religion", "spread_religion"],
+      "quote": "A paz vem de dentro. Não a procure fora."
+    }
+  }
+}
