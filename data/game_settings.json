@@ -1,0 +1,200 @@
+{
+  "difficulty_levels": {
+    "settler": {
+      "name": "Colonizador",
+      "ai_bonus": 0,
+      "barbarian_activity": 0.5,
+      "player_bonus": 1.5,
+      "description": "Para jogadores novatos ou para uma experiência relaxante."
+    },
+    "chieftain": {
+      "name": "Cacique",
+      "ai_bonus": 0.2,
+      "barbarian_activity": 0.75,
+      "player_bonus": 1.3,
+      "description": "Para jogadores com pouca experiência."
+    },
+    "warlord": {
+      "name": "Senhor da Guerra",
+      "ai_bonus": 0.4,
+      "barbarian_activity": 1.0,
+      "player_bonus": 1.1,
+      "description": "Para jogadores com alguma experiência."
+    },
+    "prince": {
+      "name": "Príncipe",
+      "ai_bonus": 0.6,
+      "barbarian_activity": 1.0,
+      "player_bonus": 1.0,
+      "description": "Nível equilibrado, sem vantagens para IA ou jogador."
+    },
+    "king": {
+      "name": "Rei",
+      "ai_bonus": 0.8,
+      "barbarian_activity": 1.25,
+      "player_bonus": 0.9,
+      "description": "Para jogadores experientes."
+    },
+    "emperor": {
+      "name": "Imperador",
+      "ai_bonus": 1.0,
+      "barbarian_activity": 1.5,
+      "player_bonus": 0.8,
+      "description": "Para jogadores muito experientes."
+    },
+    "immortal": {
+      "name": "Imortal",
+      "ai_bonus": 1.2,
+      "barbarian_activity": 1.75,
+      "player_bonus": 0.7,
+      "description": "Para jogadores extremamente habilidosos."
+    },
+    "deity": {
+      "name": "Divindade",
+      "ai_bonus": 1.5,
+      "barbarian_activity": 2.0,
+      "player_bonus": 0.6,
+      "description": "O maior desafio possível."
+    }
+  },
+  "map_types": {
+    "continents": {
+      "name": "Continentes",
+      "description": "Alguns grandes continentes com algumas ilhas."
+    },
+    "pangaea": {
+      "name": "Pangeia",
+      "description": "Uma grande massa de terra com poucas ou nenhuma ilha."
+    },
+    "archipelago": {
+      "name": "Arquipélago",
+      "description": "Muitas pequenas ilhas espalhadas pelo oceano."
+    },
+    "inland_sea": {
+      "name": "Mar Interior",
+      "description": "Terra ao redor de um grande mar central."
+    },
+    "fractal": {
+      "name": "Fractal",
+      "description": "Um mapa aleatório com padrões imprevisíveis."
+    },
+    "highlands": {
+      "name": "Terras Altas",
+      "description": "Muitas montanhas e colinas."
+    },
+    "islands": {
+      "name": "Ilhas",
+      "description": "Várias ilhas de tamanho médio."
+    }
+  },
+  "map_sizes": {
+    "duel": {
+      "name": "Duelo",
+      "width": 40,
+      "height": 24,
+      "players": 2,
+      "city_states": 4,
+      "description": "Um mapa pequeno para 2 jogadores."
+    },
+    "tiny": {
+      "name": "Minúsculo",
+      "width": 56,
+      "height": 36,
+      "players": 4,
+      "city_states": 8,
+      "description": "Um mapa pequeno para 4 jogadores."
+    },
+    "small": {
+      "name": "Pequeno",
+      "width": 66,
+      "height": 42,
+      "players": 6,
+      "city_states": 12,
+      "description": "Um mapa para 6 jogadores."
+    },
+    "standard": {
+      "name": "Padrão",
+      "width": 80,
+      "height": 52,
+      "players": 8,
+      "city_states": 16,
+      "description": "Um mapa para 8 jogadores."
+    },
+    "large": {
+      "name": "Grande",
+      "width": 104,
+      "height": 64,
+      "players": 10,
+      "city_states": 20,
+      "description": "Um mapa para 10 jogadores."
+    },
+    "huge": {
+      "name": "Enorme",
+      "width": 128,
+      "height": 80,
+      "players": 12,
+      "city_states": 24,
+      "description": "Um mapa para 12 jogadores."
+    }
+  },
+  "game_speeds": {
+    "quick": {
+      "name": "Rápido",
+      "research_speed": 1.5,
+      "production_speed": 1.5,
+      "gold_speed": 1.5,
+      "culture_speed": 1.5,
+      "growth_speed": 1.5,
+      "description": "Uma partida mais curta com ritmo acelerado."
+    },
+    "standard": {
+      "name": "Padrão",
+      "research_speed": 1.0,
+      "production_speed": 1.0,
+      "gold_speed": 1.0,
+      "culture_speed": 1.0,
+      "growth_speed": 1.0,
+      "description": "A experiência clássica de Civilization."
+    },
+    "epic": {
+      "name": "Épico",
+      "research_speed": 0.66,
+      "production_speed": 0.66,
+      "gold_speed": 0.66,
+      "culture_speed": 0.66,
+      "growth_speed": 0.66,
+      "description": "Uma partida mais longa com mais tempo para estratégia."
+    },
+    "marathon": {
+      "name": "Maratona",
+      "research_speed": 0.33,
+      "production_speed": 0.33,
+      "gold_speed": 0.33,
+      "culture_speed": 0.33,
+      "growth_speed": 0.33,
+      "description": "Uma partida muito longa com ênfase em cada decisão."
+    }
+  },
+  "victory_conditions": {
+    "domination": {
+      "name": "Dominação",
+      "description": "Capture todas as capitais originais de outras civilizações enquanto mantém a sua."
+    },
+    "cultural": {
+      "name": "Cultural",
+      "description": "Torne-se influente com todas as outras civilizações através da cultura e turismo."
+    },
+    "scientific": {
+      "name": "Científica",
+      "description": "Seja a primeira civilização a completar um projeto espacial e enviar uma nave para Alpha Centauri."
+    },
+    "diplomatic": {
+      "name": "Diplomática",
+      "description": "Seja eleito líder mundial nas Nações Unidas."
+    },
+    "time": {
+      "name": "Pontuação",
+      "description": "Tenha a maior pontuação quando o tempo limite for atingido."
+    }
+  }
+}

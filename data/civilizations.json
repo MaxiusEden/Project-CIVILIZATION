@@ -1,0 +1,98 @@
+{
+  "america": {
+    "name": "América",
+    "leader": "Washington",
+    "unique_unit": "minuteman",
+    "unique_building": "mall",
+    "ability": "Manifest Destiny",
+    "ability_description": "Todas as unidades terrestres têm +1 de visão. 50% de desconto na compra de tiles.",
+    "start_bias": ["plains"],
+    "city_names": [
+      "Washington", "New York", "Boston", "Philadelphia", "Atlanta",
+      "Chicago", "Seattle", "San Francisco", "Los Angeles", "Houston",
+      "Portland", "St. Louis", "Miami", "Buffalo", "Detroit",
+      "New Orleans", "Baltimore", "Denver", "Cincinnati", "Dallas"
+    ],
+    "colors": ["blue", "white"]
+  },
+  "china": {
+    "name": "China",
+    "leader": "Wu Zetian",
+    "unique_unit": "chu_ko_nu",
+    "unique_building": "paper_maker",
+    "ability": "Art of War",
+    "ability_description": "Eficiência de Grandes Generais é aumentada em 50%. Grandes Generais são gerados 50% mais rápido.",
+    "start_bias": ["plains", "grass"],
+    "city_names": [
+      "Beijing", "Shanghai", "Guangzhou", "Nanjing", "Xian",
+      "Chengdu", "Hangzhou", "Tianjin", "Macau", "Shandong",
+      "Kaifeng", "Ningbo", "Baoding", "Yangzhou", "Harbin",
+      "Chongqing", "Luoyang", "Kunming", "Taipei", "Shenyang"
+    ],
+    "colors": ["red", "yellow"]
+  },
+  "egypt": {
+    "name": "Egito",
+    "leader": "Ramsés II",
+    "unique_unit": "war_chariot",
+    "unique_building": "burial_tomb",
+    "ability": "Monument Builders",
+    "ability_description": "+20% de velocidade de construção de Maravilhas.",
+    "start_bias": ["desert", "river"],
+    "city_names": [
+      "Thebes", "Memphis", "Heliopolis", "Elephantine", "Alexandria",
+      "Pi-Ramesses", "Giza", "Byblos", "Akhetaten", "Hieraconpolis",
+      "Abydos", "Karnak", "Bubastis", "Tanis", "Edfu",
+      "Pithom", "Buto", "Nekhen", "Abusir", "Valley of the Kings"
+    ],
+    "colors": ["yellow", "blue"]
+  },
+  "england": {
+    "name": "Inglaterra",
+    "leader": "Elizabeth I",
+    "unique_unit": "longbowman",
+    "unique_building": "stock_exchange",
+    "ability": "Sun Never Sets",
+    "ability_description": "+2 de movimento para todas as unidades navais.",
+    "start_bias": ["coast"],
+    "city_names": [
+      "London", "York", "Nottingham", "Hastings", "Canterbury",
+      "Coventry", "Warwick", "Newcastle", "Oxford", "Liverpool",
+      "Dover", "Brighton", "Norwich", "Leeds", "Reading",
+      "Birmingham", "Richmond", "Exeter", "Cambridge", "Gloucester"
+    ],
+    "colors": ["red", "white"]
+  },
+  "france": {
+    "name": "França",
+    "leader": "Napoleão",
+    "unique_unit": "musketeer",
+    "unique_building": "chateau",
+    "ability": "Ancient Regime",
+    "ability_description": "+2 de cultura por cidade até a Revolução Industrial.",
+    "start_bias": ["grass"],
+    "city_names": [
+      "Paris", "Orleans", "Lyon", "Troyes", "Tours",
+      "Marseille", "Chartres", "Avignon", "Rouen", "Grenoble",
+      "Dijon", "Amiens", "Cherbourg", "Poitiers", "Toulouse",
+      "Bayonne", "Strasbourg", "Brest", "Bordeaux", "Rennes"
+    ],
+    "colors": ["blue", "white"]
+  },
+  "germany": {
+    "name": "Alemanha",
+    "leader": "Bismarck",
+    "unique_unit": "panzer",
+    "unique_building": "hanse",
+    "ability": "Furor Teutonicus",
+    "ability_description": "50% de chance de converter bárbaros derrotados em unidades alemãs.",
+    "start_bias": ["forest", "plains"],
+    "city_names": [
+      "Berlin", "Hamburg", "Munich", "Cologne", "Frankfurt",
+      "Essen", "Dortmund", "Stuttgart", "Düsseldorf", "Bremen",
+      "Hannover", "Leipzig", "Dresden", "Magdeburg", "Nuremberg",
+      "Heidelberg", "Augsburg", "Würzburg", "Trier", "Rostock"
+    ],
+    "colors": ["black", "white"]
+  }
+}

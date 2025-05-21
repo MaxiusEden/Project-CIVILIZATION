@@ -1,0 +1,100 @@
+{
+  "colors": {
+    "background": "#000000",
+    "text": "#FFFFFF",
+    "highlight": "#FFCC00",
+    "button": "#333333",
+    "button_hover": "#555555",
+    "button_text": "#FFFFFF",
+    "panel": "#222222",
+    "panel_border": "#444444",
+    "tooltip": "#111111",
+    "tooltip_text": "#DDDDDD",
+    "menu_background": "#111111",
+    "menu_text": "#FFFFFF",
+    "menu_highlight": "#FFCC00",
+    "resource_food": "#00FF00",
+    "resource_production": "#FF6600",
+    "resource_gold": "#FFCC00",
+    "resource_science": "#00CCFF",
+    "resource_culture": "#CC33FF",
+    "resource_happiness": "#FFFF00"
+  },
+  "fonts": {
+    "main": "Arial",
+    "title": "Times New Roman",
+    "button": "Arial",
+    "tooltip": "Arial",
+    "small": "Arial",
+    "sizes": {
+      "small": 10,
+      "normal": 12,
+      "large": 16,
+      "title": 24,
+      "heading": 18
+    }
+  },
+  "layout": {
+    "sidebar_width": 250,
+    "top_panel_height": 40,
+    "bottom_panel_height": 150,
+    "minimap_size": 200,
+    "tooltip_width": 300,
+    "button_height": 30,
+    "padding": 10,
+    "margin": 5
+  },
+  "keyboard_shortcuts": {
+    "move_up": "w",
+    "move_down": "s",
+    "move_left": "a",
+    "move_right": "d",
+    "next_unit": "tab",
+    "previous_unit": "shift+tab",
+    "end_turn": "enter",
+    "open_tech_tree": "t",
+    "open_civics": "c",
+    "open_diplomacy": "d",
+    "open_economy": "e",
+    "open_military": "m",
+    "open_city_view": "v",
+    "center_capital": "home",
+    "quick_save": "f5",
+    "quick_load": "f9",
+    "toggle_grid": "g",
+    "toggle_resource_icons": "r",
+    "toggle_yield_icons": "y"
+  },
+  "sound": {
+    "master_volume": 100,
+    "music_volume": 70,
+    "effects_volume": 80,
+    "ambient_volume": 60,
+    "speech_volume": 90,
+    "mute": false
+  },
+  "graphics": {
+    "resolution": "1920x1080",
+    "fullscreen": true,
+    "vsync": true,
+    "animation_speed": 1.0,
+    "show_tile_yields": true,
+    "show_resource_icons": true,
+    "show_grid": false,
+    "show_movement_paths": true,
+    "smooth_camera": true,
+    "detailed_map": true
+  },
+  "gameplay": {
+    "auto_end_turn": false,
+    "quick_combat": false,
+    "quick_movement": false,
+    "auto_save_frequency": 5,
+    "auto_save_slots": 3,
+    "tutorial_tips": true,
+    "advisor_level": "normal",
+    "auto_assign_citizens": true,
+    "auto_build_roads": false,
+    "auto_explore": true
+  }
+}

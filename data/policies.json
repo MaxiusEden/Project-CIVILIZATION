@@ -1,0 +1,188 @@
+{
+  "tradition": {
+    "name": "Tradição",
+    "description": "Especialização em crescimento e desenvolvimento de grandes impérios.",
+    "era": "ancient",
+    "opener": {
+      "name": "Aristocracia",
+      "description": "+15% de velocidade de construção de maravilhas e +1 de felicidade para cada 10 cidadãos em uma cidade."
+    },
+    "policies": {
+      "legalism": {
+        "name": "Legalismo",
+        "description": "Fornece um edifício cultural gratuito nas primeiras 4 cidades."
+      },
+      "oligarchy": {
+        "name": "Oligarquia",
+        "description": "Unidades em cidades não custam manutenção e cidades com guarnição têm +50% de força de combate."
+      },
+      "landed_elite": {
+        "name": "Elite Proprietária",
+        "description": "+10% de crescimento em todas as cidades e +2 de comida na capital."
+      },
+      "monarchy": {
+        "name": "Monarquia",
+        "description": "+1 de ouro e -1 de infelicidade para cada 2 cidadãos na capital."
+      }
+    },
+    "finisher": {
+      "name": "Aristocracia Completa",
+      "description": "+15% de comida em todas as cidades e cada cidade ganha +2 de produção de comida."
+    }
+  },
+  "liberty": {
+    "name": "Liberdade",
+    "description": "Especialização em expansão e desenvolvimento de civilizações amplas.",
+    "era": "ancient",
+    "opener": {
+      "name": "República",
+      "description": "+1 de produção em todas as cidades e +5% de velocidade de construção de edifícios."
+    },
+    "policies": {
+      "citizenship": {
+        "name": "Cidadania",
+        "description": "Um trabalhador gratuito aparece perto da capital e trabalhadores constroem 25% mais rápido."
+      },
+      "collective_rule": {
+        "name": "Regra Coletiva",
+        "description": "Um colonizador gratuito aparece perto da capital e colonizadores são produzidos 50% mais rápido."
+      },
+      "meritocracy": {
+        "name": "Meritocracia",
+        "description": "+1 de felicidade para cada cidade conectada à capital e -5% de infelicidade por população."
+      },
+      "representation": {
+        "name": "Representação",
+        "description": "Cada cidade produz +1 de cultura e a anarquia por mudança de governo é reduzida em 50%."
+      }
+    },
+    "finisher": {
+      "name": "Liberdade Completa",
+      "description": "Um grande personagem de sua escolha aparece perto da capital e o custo de ouro para comprar tiles é reduzido em 50%."
+    }
+  },
+  "honor": {
+    "name": "Honra",
+    "description": "Especialização em combate e conquista militar.",
+    "era": "ancient",
+    "opener": {
+      "name": "Código de Guerreiro",
+      "description": "+33% de experiência de combate para todas as unidades e revela a localização de acampamentos bárbaros."
+    },
+    "policies": {
+      "discipline": {
+        "name": "Disciplina",
+        "description": "Unidades militares ganham +15% de força de combate quando adjacentes a outra unidade militar."
+      },
+      "military_tradition": {
+        "name": "Tradição Militar",
+        "description": "Unidades militares ganham +50% de experiência de combate e +1 de movimento para Grandes Generais."
+      },
+      "military_caste": {
+        "name": "Casta Militar",
+        "description": "Cada cidade com uma guarnição produz +1 de felicidade e +2 de cultura."
+      },
+      "professional_army": {
+        "name": "Exército Profissional",
+        "description": "-33% de custo de ouro para atualizar unidades e +1 de felicidade para cada quartel, arsenal e base militar."
+      }
+    },
+    "finisher": {
+      "name": "Honra Completa",
+      "description": "Ganhe ouro ao matar unidades inimigas e um Grande General gratuito aparece."
+    }
+  },
+  "piety": {
+    "name": "Piedade",
+    "description": "Especialização em felicidade, cultura e religião.",
+    "era": "classical",
+    "opener": {
+      "name": "Piedade",
+      "description": "+25% de produção de edifícios religiosos e +1 de felicidade para cada cidade com um templo."
+    },
+    "policies": {
+      "organized_religion": {
+        "name": "Religião Organizada",
+        "description": "+1 de felicidade para cada cidade com um monumento e +25% de produção de edifícios religiosos."
+      },
+      "mandate_of_heaven": {
+        "name": "Mandato do Céu",
+        "description": "50% da cultura de uma cidade é adicionada à produção de maravilhas."
+      },
+      "theocracy": {
+        "name": "Teocracia",
+        "description": "Templos fornecem +10% de ouro em uma cidade."
+      },
+      "reformation": {
+        "name": "Reforma",
+        "description": "+33% de produção de cultura em cidades com uma maravilha mundial."
+      }
+    },
+    "finisher": {
+      "name": "Piedade Completa",
+      "description": "Reduz o custo de cultura para políticas em 10% e um Grande Artista gratuito aparece."
+    }
+  },
+  "commerce": {
+    "name": "Comércio",
+    "description": "Especialização em geração de ouro e rotas comerciais.",
+    "era": "medieval",
+    "opener": {
+      "name": "Mercantilismo",
+      "description": "+25% de produção de ouro em todas as cidades e -25% de custo de ouro para comprar itens nas cidades."
+    },
+    "policies": {
+      "trade_unions": {
+        "name": "Sindicatos Comerciais",
+        "description": "+1 de ouro para cada fonte de recursos de luxo e estratégicos."
+      },
+      "merchant_navy": {
+        "name": "Marinha Mercante",
+        "description": "+3 de produção e +3 de ouro em todas as cidades costeiras."
+      },
+      "entrepreneurship": {
+        "name": "Empreendedorismo",
+        "description": "Grandes Mercadores são gerados 25% mais rápido e +1 de ciência em todas as rotas comerciais."
+      },
+      "protectionism": {
+        "name": "Protecionismo",
+        "description": "+1 de felicidade para cada recurso de luxo."
+      }
+    },
+    "finisher": {
+      "name": "Comércio Completo",
+      "description": "+1 de ouro para cada cidade e um Grande Mercador gratuito aparece."
+    }
+  },
+  "rationalism": {
+    "name": "Racionalismo",
+    "description": "Especialização em ciência e tecnologia.",
+    "era": "renaissance",
+    "opener": {
+      "name": "Secularismo",
+      "description": "+2 de ciência para cada especialista e +15% de produção de ciência quando o império está feliz."
+    },
+    "policies": {
+      "humanism": {
+        "name": "Humanismo",
+        "description": "+1 de felicidade para cada universidade, observatório e escola pública."
+      },
+      "free_thought": {
+        "name": "Livre Pensamento",
+        "description": "+1 de ciência em cada posto comercial e +17% de produção de ciência em universidades."
+      },
+      "sovereignty": {
+        "name": "Soberania",
+        "description": "+15% de produção de ciência enquanto o império está feliz."
+      },
+      "scientific_revolution": {
+        "name": "Revolução Científica",
+        "description": "+1 de ciência para cada fábrica e +50% de pontos de Grande Cientista."
+      }
+    },
+    "finisher": {
+      "name": "Racionalismo Completo",
+      "description": "Permite comprar Grandes Cientistas com fé a partir da Era Industrial e um Grande Cientista gratuito aparece."
+    }
+  }
+}

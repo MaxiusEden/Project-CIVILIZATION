@@ -1,0 +1,112 @@
+{
+  "farm": {
+    "name": "Fazenda",
+    "requires_tech": "agriculture",
+    "build_time": 6,
+    "valid_terrains": ["plains", "grass", "desert"],
+    "food": 1,
+    "production": 0,
+    "gold": 0,
+    "description": "Aumenta a produção de comida."
+  },
+  "mine": {
+    "name": "Mina",
+    "requires_tech": "mining",
+    "build_time": 6,
+    "valid_terrains": ["hills", "mountains", "desert"],
+    "food": 0,
+    "production": 1,
+    "gold": 0,
+    "description": "Aumenta a produção."
+  },
+  "pasture": {
+    "name": "Pasto",
+    "requires_tech": "animal_husbandry",
+    "build_time": 7,
+    "valid_terrains": ["plains", "grass", "hills"],
+    "food": 0,
+    "production": 0,
+    "gold": 0,
+    "description": "Permite o uso de recursos como cavalos, gado e ovelhas."
+  },
+  "camp": {
+    "name": "Acampamento",
+    "requires_tech": "trapping",
+    "build_time": 6,
+    "valid_terrains": ["forest", "plains", "tundra", "hills"],
+    "food": 0,
+    "production": 0,
+    "gold": 1,
+    "description": "Permite o uso de recursos como marfim, peles e cervos."
+  },
+  "plantation": {
+    "name": "Plantação",
+    "requires_tech": "calendar",
+    "build_time": 5,
+    "valid_terrains": ["plains", "grass", "desert"],
+    "food": 0,
+    "production": 0,
+    "gold": 1,
+    "description": "Permite o uso de recursos como bananas, algodão, vinho e incenso."
+  },
+  "quarry": {
+    "name": "Pedreira",
+    "requires_tech": "masonry",
+    "build_time": 7,
+    "valid_terrains": ["hills", "plains", "desert"],
+    "food": 0,
+    "production": 1,
+    "gold": 0,
+    "description": "Permite o uso de recursos como pedra e mármore."
+  },
+  "fishing_boats": {
+    "name": "Barcos de Pesca",
+    "requires_tech": "sailing",
+    "build_time": 5,
+    "valid_terrains": ["water"],
+    "food": 1,
+    "production": 0,
+    "gold": 0,
+    "description": "Permite o uso de recursos aquáticos como peixes e pérolas."
+  },
+  "trading_post": {
+    "name": "Posto Comercial",
+    "requires_tech": "currency",
+    "build_time": 8,
+    "valid_terrains": ["plains", "grass", "desert", "tundra"],
+    "food": 0,
+    "production": 0,
+    "gold": 2,
+    "description": "Aumenta a produção de ouro."
+  },
+  "lumber_mill": {
+    "name": "Serraria",
+    "requires_tech": "construction",
+    "build_time": 6,
+    "valid_terrains": ["forest"],
+    "food": 0,
+    "production": 1,
+    "gold": 0,
+    "description": "Aumenta a produção em florestas."
+  },
+  "fort": {
+    "name": "Forte",
+    "requires_tech": "engineering",
+    "build_time": 6,
+    "valid_terrains": ["plains", "grass", "desert", "tundra", "hills"],
+    "food": 0,
+    "production": 0,
+    "gold": 0,
+    "description": "Fornece bônus de defesa para unidades."
+  },
+  "road": {
+    "name": "Estrada",
+    "requires_tech": "wheel",
+    "build_time": 3,
+    "valid_terrains": ["plains", "grass", "desert", "tundra", "hills", "forest"],
+    "food": 0,
+    "production": 0,
+    "gold": 0,
+    "description": "Reduz o custo de movimento e conecta cidades."
+  }
+}

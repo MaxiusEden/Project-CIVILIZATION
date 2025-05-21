@@ -1,0 +1,242 @@
+{
+  "horses": {
+    "name": "Cavalos",
+    "type": "strategic",
+    "food": 0,
+    "production": 1,
+    "gold": 0,
+    "improvement": "pasture",
+    "requires_tech": "animal_husbandry",
+    "description": "Recurso estratégico necessário para unidades de cavalaria."
+  },
+  "iron": {
+    "name": "Ferro",
+    "type": "strategic",
+    "food": 0,
+    "production": 1,
+    "gold": 0,
+    "improvement": "mine",
+    "requires_tech": "iron_working",
+    "description": "Recurso estratégico necessário para unidades de infantaria avançadas."
+  },
+  "coal": {
+    "name": "Carvão",
+    "type": "strategic",
+    "food": 0,
+    "production": 2,
+    "gold": 0,
+    "improvement": "mine",
+    "requires_tech": "industrialization",
+    "description": "Recurso estratégico necessário para edifícios e unidades industriais."
+  },
+  "oil": {
+    "name": "Petróleo",
+    "type": "strategic",
+    "food": 0,
+    "production": 1,
+    "gold": 1,
+    "improvement": "oil_well",
+    "requires_tech": "biology",
+    "description": "Recurso estratégico necessário para unidades modernas."
+  },
+  "aluminum": {
+    "name": "Alumínio",
+    "type": "strategic",
+    "food": 0,
+    "production": 1,
+    "gold": 1,
+    "improvement": "mine",
+    "requires_tech": "electricity",
+    "description": "Recurso estratégico necessário para unidades avançadas."
+  },
+  "uranium": {
+    "name": "Urânio",
+    "type": "strategic",
+    "food": 0,
+    "production": 1,
+    "gold": 1,
+    "improvement": "mine",
+    "requires_tech": "atomic_theory",
+    "description": "Recurso estratégico necessário para unidades nucleares."
+  },
+  "wheat": {
+    "name": "Trigo",
+    "type": "bonus",
+    "food": 2,
+    "production": 0,
+    "gold": 0,
+    "improvement": "farm",
+    "requires_tech": "agriculture",
+    "description": "Recurso bônus que aumenta a produção de comida."
+  },
+  "cattle": {
+    "name": "Gado",
+    "type": "bonus",
+    "food": 1,
+    "production": 1,
+    "gold": 0,
+    "improvement": "pasture",
+    "requires_tech": "animal_husbandry",
+    "description": "Recurso bônus que aumenta a produção de comida e produção."
+  },
+  "sheep": {
+    "name": "Ovelhas",
+    "type": "bonus",
+    "food": 1,
+    "production": 1,
+    "gold": 0,
+    "improvement": "pasture",
+    "requires_tech": "animal_husbandry",
+    "description": "Recurso bônus que aumenta a produção de comida e produção."
+  },
+  "deer": {
+    "name": "Cervos",
+    "type": "bonus",
+    "food": 1,
+    "production": 1,
+    "gold": 0,
+    "improvement": "camp",
+    "requires_tech": "trapping",
+    "description": "Recurso bônus que aumenta a produção de comida e produção."
+  },
+  "bananas": {
+    "name": "Bananas",
+    "type": "bonus",
+    "food": 2,
+    "production": 0,
+    "gold": 0,
+    "improvement": "plantation",
+    "requires_tech": "calendar",
+    "description": "Recurso bônus que aumenta a produção de comida."
+  },
+  "fish": {
+    "name": "Peixes",
+    "type": "bonus",
+    "food": 2,
+    "production": 0,
+    "gold": 0,
+    "improvement": "fishing_boats",
+    "requires_tech": "sailing",
+    "description": "Recurso bônus aquático que aumenta a produção de comida."
+  },
+  "stone": {
+    "name": "Pedra",
+    "type": "bonus",
+    "food": 0,
+    "production": 2,
+    "gold": 0,
+    "improvement": "quarry",
+    "requires_tech": "masonry",
+    "description": "Recurso bônus que aumenta a produção."
+  },
+  "gold_ore": {
+    "name": "Ouro",
+    "type": "luxury",
+    "food": 0,
+    "production": 0,
+    "gold": 2,
+    "improvement": "mine",
+    "requires_tech": "mining",
+    "description": "Recurso de luxo que aumenta a felicidade e produção de ouro."
+  },
+  "silver": {
+    "name": "Prata",
+    "type": "luxury",
+    "food": 0,
+    "production": 0,
+    "gold": 2,
+    "improvement": "mine",
+    "requires_tech": "mining",
+    "description": "Recurso de luxo que aumenta a felicidade e produção de ouro."
+  },
+  "gems": {
+    "name": "Gemas",
+    "type": "luxury",
+    "food": 0,
+    "production": 0,
+    "gold": 3,
+    "improvement": "mine",
+    "requires_tech": "mining",
+    "description": "Recurso de luxo que aumenta a felicidade e produção de ouro."
+  },
+  "marble": {
+    "name": "Mármore",
+    "type": "luxury",
+    "food": 0,
+    "production": 1,
+    "gold": 1,
+    "improvement": "quarry",
+    "requires_tech": "masonry",
+    "description": "Recurso de luxo que aumenta a felicidade e velocidade de construção de maravilhas."
+  },
+  "cotton": {
+    "name": "Algodão",
+    "type": "luxury",
+    "food": 0,
+    "production": 0,
+    "gold": 2,
+    "improvement": "plantation",
+    "requires_tech": "calendar",
+    "description": "Recurso de luxo que aumenta a felicidade e produção de ouro."
+  },
+  "wine": {
+    "name": "Vinho",
+    "type": "luxury",
+    "food": 0,
+    "production": 0,
+    "gold": 2,
+    "improvement": "plantation",
+    "requires_tech": "calendar",
+    "description": "Recurso de luxo que aumenta a felicidade e produção de ouro."
+  },
+  "incense": {
+    "name": "Incenso",
+    "type": "luxury",
+    "food": 0,
+    "production": 0,
+    "gold": 2,
+    "improvement": "plantation",
+    "requires_tech": "calendar",
+    "description": "Recurso de luxo que aumenta a felicidade e produção de ouro."
+  },
+  "ivory": {
+    "name": "Marfim",
+    "type": "luxury",
+    "food": 0,
+    "production": 0,
+    "gold": 2,
+    "improvement": "camp",
+    "requires_tech": "trapping",
+    "description": "Recurso de luxo que aumenta a felicidade e produção de ouro."
+  },
+  "furs": {
+    "name": "Peles",
+    "type": "luxury",
+    "food": 0,
+    "production": 0,
+    "gold": 2,
+    "improvement": "camp",
+    "requires_tech": "trapping",
+    "description": "Recurso de luxo que aumenta a felicidade e produção de ouro."
+  },
+  "dyes": {
+    "name": "Corantes",
+    "type": "luxury",
+    "food": 0,
+    "production": 0,
+    "gold": 2,
+    "improvement": "plantation",
+    "requires_tech": "calendar",
+    "description": "Recurso de luxo que aumenta a felicidade e produção de ouro."
+  },
+  "pearls": {
+    "name": "Pérolas",
+    "type": "luxury",
+    "food": 0,
+    "production": 0,
+    "gold": 2,
+    "improvement": "fishing_boats",
+    "requires_tech": "sailing",
+    "description": "Recurso de luxo aquático que aumenta a felicidade e produção de ouro."
+  }
+}

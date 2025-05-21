@@ -1,76 +1,119 @@
 {
-  "granary": {
-    "name": "Celeiro",
-    "cost": 60,
-    "maintenance": 1,
-    "requires_tech": "pottery",
-    "effects": {
-      "food": 2,
-      "housing": 2
-    },
-    "description": "Aumenta a produção de alimentos na cidade."
-  },
   "monument": {
     "name": "Monumento",
-    "cost": 50,
+    "cost": 60,
     "maintenance": 1,
     "requires_tech": null,
-    "effects": {
-      "culture": 2
-    },
-    "description": "Aumenta a produção cultural da cidade."
+    "culture": 2,
+    "happiness": 0,
+    "science": 0,
+    "gold": 0,
+    "production": 0,
+    "food": 0,
+    "description": "Aumenta a produção de cultura da cidade."
+  },
+  "granary": {
+    "name": "Celeiro",
+    "cost": 70,
+    "maintenance": 1,
+    "requires_tech": "pottery",
+    "culture": 0,
+    "happiness": 0,
+    "science": 0,
+    "gold": 0,
+    "production": 0,
+    "food": 2,
+    "description": "Aumenta a produção de comida da cidade."
   },
   "library": {
     "name": "Biblioteca",
     "cost": 80,
     "maintenance": 1,
     "requires_tech": "writing",
-    "effects": {
-      "science": 2
-    },
-    "description": "Aumenta a produção científica da cidade."
+    "culture": 0,
+    "happiness": 0,
+    "science": 2,
+    "gold": 0,
+    "production": 0,
+    "food": 0,
+    "description": "Aumenta a produção de ciência da cidade."
   },
   "barracks": {
     "name": "Quartel",
-    "cost": 70,
+    "cost": 80,
     "maintenance": 1,
     "requires_tech": "bronze_working",
-    "effects": {
-      "production_military": 0.25
-    },
-    "description": "Aumenta a produção de unidades militares."
+    "culture": 0,
+    "happiness": 0,
+    "science": 0,
+    "gold": 0,
+    "production": 0,
+    "food": 0,
+    "description": "Unidades militares produzidas nesta cidade começam com +15 XP."
   },
   "walls": {
     "name": "Muralhas",
     "cost": 100,
     "maintenance": 1,
     "requires_tech": "masonry",
-    "effects": {
-      "defense": 100
-    },
-    "description": "Fornece defesa adicional para a cidade."
+    "culture": 0,
+    "happiness": 0,
+    "science": 0,
+    "gold": 0,
+    "production": 0,
+    "food": 0,
+    "description": "Aumenta a defesa da cidade."
   },
   "market": {
     "name": "Mercado",
-    "cost": 90,
+    "cost": 120,
     "maintenance": 1,
     "requires_tech": "currency",
-    "effects": {
-      "gold": 3,
-      "trade_routes": 1
-    },
-    "description": "Aumenta a produção de ouro na cidade."
+    "culture": 0,
+    "happiness": 0,
+    "science": 0,
+    "gold": 2,
+    "production": 0,
+    "food": 0,
+    "description": "Aumenta a produção de ouro da cidade."
   },
-  "water_mill": {
-    "name": "Moinho d'Água",
-    "cost": 70,
-    "maintenance": 1,
-    "requires_tech": "wheel",
-    "requires_river": true,
-    "effects": {
-      "food": 1,
-      "production": 1
-    },
-    "description": "Aumenta a produção de alimentos e produção em cidades próximas a rios."
+  "workshop": {
+    "name": "Oficina",
+    "cost": 120,
+    "maintenance": 2,
+    "requires_tech": "metal_casting",
+    "culture": 0,
+    "happiness": 0,
+    "science": 0,
+    "gold": 0,
+    "production": 2,
+    "food": 0,
+    "description": "Aumenta a produção da cidade."
+  },
+  "temple": {
+    "name": "Templo",
+    "cost": 120,
+    "maintenance": 2,
+    "requires_tech": "philosophy",
+    "culture": 3,
+    "happiness": 0,
+    "science": 0,
+    "gold": 0,
+    "production": 0,
+    "food": 0,
+    "description": "Aumenta a produção de cultura da cidade."
+  },
+  "university": {
+    "name": "Universidade",
+    "cost": 200,
+    "maintenance": 3,
+    "requires_tech": "education",
+    "culture": 0,
+    "happiness": 0,
+    "science": 4,
+    "gold": 0,
+    "production": 0,
+    "food": 0,
+    "description": "Aumenta significativamente a produção de ciência da cidade."
   }
 }

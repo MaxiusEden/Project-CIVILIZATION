@@ -2,65 +2,181 @@
   "agriculture": {
     "name": "Agricultura",
     "cost": 20,
-    "prerequisites": [],
-    "unlocks": ["irrigation", "pottery"],
-    "era": "Antiga",
-    "description": "A base da civilização humana, permitindo assentamentos permanentes."
+    "era": "ancient",
+    "requires": [],
+    "unlocks_buildings": [],
+    "unlocks_units": [],
+    "unlocks_improvements": ["farm"],
+    "description": "A base da civilização humana."
   },
   "animal_husbandry": {
     "name": "Domesticação de Animais",
-    "cost": 20,
-    "prerequisites": [],
-    "unlocks": ["horseback_riding"],
-    "era": "Antiga",
-    "description": "Domesticação de animais para alimentação e trabalho."
+    "cost": 35,
+    "era": "ancient",
+    "requires": ["agriculture"],
+    "unlocks_buildings": [],
+    "unlocks_units": [],
+    "unlocks_improvements": ["pasture"],
+    "description": "Permite a domesticação de animais para uso humano."
   },
   "archery": {
     "name": "Arquearia",
-    "cost": 30,
-    "prerequisites": [],
-    "unlocks": ["machinery"],
-    "era": "Antiga",
-    "description": "A arte de usar arcos e flechas para caça e guerra."
+    "cost": 35,
+    "era": "ancient",
+    "requires": ["agriculture"],
+    "unlocks_buildings": [],
+    "unlocks_units": ["archer"],
+    "unlocks_improvements": [],
+    "description": "Desenvolvimento de armas de ataque à distância."
   },
   "mining": {
     "name": "Mineração",
-    "cost": 20,
-    "prerequisites": [],
-    "unlocks": ["bronze_working"],
-    "era": "Antiga",
-    "description": "Extração de recursos minerais da terra."
+    "cost": 35,
+    "era": "ancient",
+    "requires": ["agriculture"],
+    "unlocks_buildings": [],
+    "unlocks_units": [],
+    "unlocks_improvements": ["mine"],
+    "description": "Extração de recursos minerais do solo."
   },
   "pottery": {
-    "name": "Olaria",
-    "cost": 25,
-    "prerequisites": ["agriculture"],
-    "unlocks": ["writing"],
-    "era": "Antiga",
-    "description": "A arte de criar recipientes de cerâmica para armazenamento."
+    "name": "Cerâmica",
+    "cost": 35,
+    "era": "ancient",
+    "requires": ["agriculture"],
+    "unlocks_buildings": ["granary"],
+    "unlocks_units": [],
+    "unlocks_improvements": [],
+    "description": "A arte de criar recipientes de barro."
   },
   "sailing": {
     "name": "Navegação",
-    "cost": 30,
-    "prerequisites": [],
-    "unlocks": ["shipbuilding"],
-    "era": "Antiga",
-    "description": "Uso de barcos e velas para navegar em águas."
+    "cost": 55,
+    "era": "ancient",
+    "requires": ["agriculture"],
+    "unlocks_buildings": [],
+    "unlocks_units": [],
+    "unlocks_improvements": ["fishing_boats"],
+    "description": "Permite a navegação em águas costeiras."
   },
   "bronze_working": {
     "name": "Trabalho em Bronze",
-    "cost": 40,
-    "prerequisites": ["mining"],
-    "unlocks": ["iron_working"],
-    "era": "Clássica",
-    "description": "Criação de ferramentas e armas usando ligas de bronze."
+    "cost": 55,
+    "era": "ancient",
+    "requires": ["mining"],
+    "unlocks_buildings": ["barracks"],
+    "unlocks_units": ["spearman"],
+    "unlocks_improvements": [],
+    "description": "Criação de armas e ferramentas de bronze."
+  },
+  "calendar": {
+    "name": "Calendário",
+    "cost": 70,
+    "era": "ancient",
+    "requires": ["pottery"],
+    "unlocks_buildings": [],
+    "unlocks_units": [],
+    "unlocks_improvements": ["plantation"],
+    "description": "Medição e registro da passagem do tempo."
+  },
+  "masonry": {
+    "name": "Alvenaria",
+    "cost": 55,
+    "era": "ancient",
+    "requires": ["mining"],
+    "unlocks_buildings": ["walls"],
+    "unlocks_units": [],
+    "unlocks_improvements": ["quarry"],
+    "description": "A arte de construir estruturas com pedras."
+  },
+  "trapping": {
+    "name": "Armadilhas",
+    "cost": 55,
+    "era": "ancient",
+    "requires": ["animal_husbandry"],
+    "unlocks_buildings": [],
+    "unlocks_units": [],
+    "unlocks_improvements": ["camp"],
+    "description": "Técnicas para capturar animais selvagens."
   },
   "writing": {
     "name": "Escrita",
-    "cost": 40,
-    "prerequisites": ["pottery"],
-    "unlocks": ["philosophy"],
-    "era": "Clássica",
-    "description": "Desenvolvimento de sistemas de escrita para registrar informações."
+    "cost": 55,
+    "era": "ancient",
+    "requires": ["pottery"],
+    "unlocks_buildings": ["library"],
+    "unlocks_units": [],
+    "unlocks_improvements": [],
+    "description": "Registro de informações através de símbolos."
+  },
+  "construction": {
+    "name": "Construção",
+    "cost": 100,
+    "era": "classical",
+    "requires": ["masonry"],
+    "unlocks_buildings": [],
+    "unlocks_units": [],
+    "unlocks_improvements": [],
+    "description": "Técnicas avançadas de construção."
+  },
+  "horseback_riding": {
+    "name": "Montaria",
+    "cost": 100,
+    "era": "classical",
+    "requires": ["animal_husbandry"],
+    "unlocks_buildings": [],
+    "unlocks_units": ["horseman"],
+    "unlocks_improvements": [],
+    "description": "Domesticação de cavalos para montaria."
+  },
+  "iron_working": {
+    "name": "Trabalho em Ferro",
+    "cost": 150,
+    "era": "classical",
+    "requires": ["bronze_working"],
+    "unlocks_buildings": [],
+    "unlocks_units": ["swordsman"],
+    "unlocks_improvements": [],
+    "description": "Forja de armas e ferramentas de ferro."
+  },
+  "mathematics": {
+    "name": "Matemática",
+    "cost": 100,
+    "era": "classical",
+    "requires": ["writing"],
+    "unlocks_buildings": [],
+    "unlocks_units": [],
+    "unlocks_improvements": [],
+    "description": "Estudo de números, formas e padrões."
+  },
+  "philosophy": {
+    "name": "Filosofia",
+    "cost": 100,
+    "era": "classical",
+    "requires": ["writing"],
+    "unlocks_buildings": ["temple"],
+    "unlocks_units": [],
+    "unlocks_improvements": [],
+    "description": "Estudo da natureza fundamental do conhecimento, realidade e existência."
+  },
+  "currency": {
+    "name": "Moeda",
+    "cost": 250,
+    "era": "classical",
+    "requires": ["mathematics"],
+    "unlocks_buildings": ["market"],
+    "unlocks_units": [],
+    "unlocks_improvements": ["trading_post"],
+    "description": "Desenvolvimento de sistemas monetários."
+  },
+  "engineering": {
+    "name": "Engenharia",
+    "cost": 250,
+    "era": "classical",
+    "requires": ["mathematics", "construction"],
+    "unlocks_buildings": [],
+    "unlocks_units": [],
+    "unlocks_improvements": [],
+    "description": "Aplicação prática da ciência para resolver problemas."
   }
 }
