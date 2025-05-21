@@ -72,32 +72,28 @@ class CityController:
             name (str): Nome da cidade (opcional).
             
         Returns:
-            City: Cidade fundada, ou None se não foi possível fundar.
+            dict: {'success': True, 'city': City} ou {'success': False, 'reason': str}
         """
         if not unit or unit.type != 'settler':
             self.logger.error("Unidade não é um colonizador")
-            return None
+            return {'success': False, 'reason': 'not_a_settler'}
         
-        # Verifica se o tile já tem uma cidade
         tile = self.game_state.world.get_tile(unit.x, unit.y)
         if not tile or tile.city:
             self.logger.error("Não é possível fundar cidade neste local")
-            return None
+            return {'success': False, 'reason': 'invalid_tile'}
         
-        # Verifica se o tile é adequado para fundar cidade
         if tile.terrain_type in ['water', 'mountains']:
             self.logger.error("Terreno inadequado para fundar cidade")
-            return None
+            return {'success': False, 'reason': 'bad_terrain'}
         
-        # Verifica se há outras cidades muito próximas
         for dx in range(-3, 4):
             for dy in range(-3, 4):
                 neighbor = self.game_state.world.get_tile(unit.x + dx, unit.y + dy)
                 if neighbor and neighbor.city:
                     self.logger.error("Muito próximo de outra cidade")
-                    return None
+                    return {'success': False, 'reason': 'too_close_to_city'}
         
-        # Gera um nome para a cidade se não for fornecido
         if not name:
             civ = unit.owner
             if civ:
@@ -105,27 +101,19 @@ class CityController:
             else:
                 name = f"City {unit.x}_{unit.y}"
         
-        # Cria a cidade
         city = self.game_state.city_class(unit.x, unit.y, name)
         city.owner = unit.owner
         city.founded_turn = self.game_state.current_turn
         
-        # Adiciona a cidade à civilização
         if city.owner:
             city.owner.add_city(city)
-        
-        # Adiciona a cidade ao tile
         tile.city = city
-        
-        # Remove o colonizador
         if city.owner:
             city.owner.remove_unit(unit)
-        
-        # Remove a unidade do tile
         tile.remove_unit(unit)
         
         self.logger.info(f"Cidade {name} fundada em ({unit.x}, {unit.y})")
-        return city
+        return {'success': True, 'city': city}
     
     def set_production(self, city, production_id):
         """

@@ -124,6 +124,9 @@ class DataLoader:
         """
         return self.load_json("buildings.json", ["name", "cost"])
     
+    def get_tech_tree(self):
+        """Compatibilidade: retorna o mesmo que get_technologies."""
+        return self.get_technologies()
     def get_terrains(self):
         """
         Carrega dados de terrenos.
@@ -194,6 +197,9 @@ class DataLoader:
             self.save_json("terrains.json", terrains)
             return terrains
     
+    def load_config(self):
+        import config
+        return {k: getattr(config, k) for k in dir(config) if k.isupper()}
     def get_resources(self):
         """
         Carrega dados de recursos.

@@ -239,3 +239,41 @@ class CivController:
         
         self.logger.info(f"{civilization.name} fez paz com {target_civ.name}")
         return True
+    
+    def create_civilizations(self, num_civs, player_civ_id):
+        """
+        Cria as civilizações do jogo, incluindo o jogador e as AIs.
+        """
+        from game.models.civilization import Civilization
+
+        self.game_state.civilizations = []
+        for i in range(num_civs):
+            if i == 0:
+                civ_name = f"Civilização {i+1}"
+                leader_name = "Jogador"
+                is_ai = False
+            else:
+                civ_name = f"Civilização {i+1}"
+                leader_name = f"Líder AI {i}"
+                is_ai = True
+            civ = Civilization(name=civ_name, leader_name=leader_name, is_ai=is_ai)
+            # Se quiser sobrescrever o id gerado automaticamente:
+            if i == 0:
+                civ.id = player_civ_id
+            else:
+                civ.id = f"ai_{i}"
+            self.game_state.civilizations.append(civ)
+    
+    def place_initial_units(self):
+        """
+        Posiciona unidades iniciais para cada civilização no início do jogo.
+        """
+        from game.models.unit import Unit
+
+        for i, civ in enumerate(self.game_state.civilizations):
+            x = 2 + i * 2
+            y = 2 + i * 2
+            unit = Unit(x=x, y=y, unit_type="settler")
+            unit.owner = civ
+            civ.units.append(unit)
+            self.game_state.world.get_tile(x, y).units.append(unit)

@@ -1,5 +1,5 @@
 # game/models/city.py
-from game.models import BaseModel
+from game.models.base_model import BaseModel
 import logging
 import random
 

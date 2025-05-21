@@ -1,14 +1,14 @@
 # Project CIVILIZATION
 
-Um jogo de estratégia baseado em turnos inspirado no Sid Meier's Civilization, implementado em modo texto para terminal.
+Um jogo de estratégia baseado em turnos inspirado no Sid Meier's Civilization, agora com interface gráfica 3D utilizando PyQt5 e PyOpenGL.
 
 ## Descrição
 
-Este projeto recria a experiência do jogo Civilization em um formato de texto para terminal. Os jogadores podem construir um império, desenvolver tecnologias, fundar cidades, construir melhorias, treinar unidades militares e interagir diplomaticamente com outras civilizações.
+Este projeto recria a experiência do jogo Civilization em uma interface gráfica moderna. Os jogadores podem construir um império, desenvolver tecnologias, fundar cidades, construir melhorias, treinar unidades militares e interagir diplomaticamente com outras civilizações, tudo em um ambiente 3D.
 
 ## Características
 
-- Interface de texto para terminal
+- Interface gráfica 3D (PyQt5 + PyOpenGL)
 - Mapa gerado proceduralmente
 - Várias civilizações para escolher
 - Sistema de tecnologias
@@ -20,6 +20,9 @@ Este projeto recria a experiência do jogo Civilization em um formato de texto p
 ## Requisitos
 
 - Python 3.6 ou superior
+- PyQt5
+- PyOpenGL
+- numpy
 
 ## Instalação
 
@@ -29,7 +32,12 @@ git clone https://github.com/MaxiusEden/Project-CIVILIZATION.git
 cd Project-CIVILIZATION
 ```
 
-2. Execute o jogo:
+2. Instale as dependências:
+```bash
+pip install -r requirements.txt
+```
+
+3. Execute o jogo:
 ```bash
 python main.py
 ```
@@ -55,39 +63,83 @@ python main.py --load meu_jogo
 - **Sobre**: Exibe informações sobre o jogo
 - **Sair**: Encerra o jogo
 
-### Controles no jogo
+### Controles na interface gráfica
 
-- **m**: Mover unidade
-- **a**: Atacar
-- **b**: Construir melhoria
-- **c**: Gerenciar cidade
-- **u**: Listar unidades
-- **t**: Tecnologias
-- **d**: Diplomacia
-- **i**: Informações do tile
-- **v**: Ver minimapa
-- **s**: Salvar jogo
-- **e**: Encerrar turno
-- **q**: Sair para o menu
+- Use o mouse para selecionar unidades, cidades e tiles do mapa
+- Utilize os botões e menus da interface para ações como mover, atacar, construir, pesquisar tecnologias, diplomacia, etc.
+- Atalhos de teclado podem ser implementados na interface gráfica (consulte a documentação in-game ou tooltips)
 
 ## Estrutura do Projeto
 
 ```
 Project-CIVILIZATION/
-├── main.py                 # Arquivo principal do jogo
-├── game/                   # Módulos do jogo
-│   ├── controllers/        # Controladores
-│   ├── models/             # Modelos de dados
-│   └── views/              # Visualizações
-├── data/                   # Dados do jogo
-│   ├── buildings.json      # Dados de edifícios
-│   ├── civilizations.json  # Dados de civilizações
-│   ├── technologies.json   # Árvore de tecnologias
-│   └── units.json          # Dados de unidades
-└── saves/                  # Jogos salvos
+│   config.py
+│   LICENSE
+│   main.py
+│   README.md
+│   requirements.txt
+│
+├───data/
+│   buildings.json
+│   city_states.json
+│   civilizations.json
+│   game_settings.json
+│   game_text.json
+│   great_people.json
+│   improvements.json
+│   policies.json
+│   promotions.json
+│   religions.json
+│   religious_beliefs.json
+│   resources.json
+│   technologies.json
+│   terrains.json
+│   ui_settings.json
+│   units.json
+│   wonders.json
+│
+├───game/
+│   __init__.py
+│
+│   ├───controllers/
+│   │   city_controller.py
+│   │   civ_controller.py
+│   │   game_controller.py
+│   │   unit_controller.py
+│   │   world_controller.py
+│   │   __init__.py
+│   │
+│   ├───gui/
+│   │   info_panel.py
+│   │   main_window.py
+│   │   map_view.py
+│   │   minimap_panel.py
+│   │   __init__.py
+│   │   # (adicione aqui outros painéis/diálogos conforme implementar)
+│   │
+│   ├───models/
+│   │   building.py
+│   │   city.py
+│   │   civilization.py
+│   │   diplomacy.py
+│   │   game_state.py
+│   │   tech.py
+│   │   unit.py
+│   │   world.py
+│   │   __init__.py
+│   │
+│   └───utils/
+│       data_loader.py
+│       logger.py
+│       perlin_noise.py
+│       save_manager.py
+│       __init__.py
+│
+├───logs/
+├───saves/
+└───tests/
 ```
 
 ## Licença
 
 Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-```

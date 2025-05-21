@@ -1,5 +1,7 @@
 # game/controllers/world_controller.py
 import logging
+import random
+from game.models.game_state import GameState
 
 class WorldController:
     """
@@ -8,20 +10,15 @@ class WorldController:
     Gerencia operações relacionadas ao mundo, como navegação, visualização e interação com tiles.
     """
     
-    def __init__(self, game_controller):
+    def __init__(self, game_state):
         """
         Inicializa o controlador do mundo.
         
         Args:
-            game_controller: Controlador principal do jogo.
+            game_state: Estado do jogo, contendo informações sobre o mundo e civilizações.
         """
-        self.game_controller = game_controller
+        self.game_state = game_state
         self.logger = logging.getLogger(self.__class__.__name__)
-    
-    @property
-    def game_state(self):
-        """Obtém o estado atual do jogo."""
-        return self.game_controller.game_state
     
     @property
     def world(self):
@@ -39,10 +36,9 @@ class WorldController:
         Returns:
             Tile: Tile nas coordenadas especificadas, ou None se as coordenadas forem inválidas.
         """
-        if not self.world:
-            return None
-        
-        return self.world.get_tile(x, y)
+        if self.world:
+            return self.world.get_tile(x, y)
+        return None
     
     def get_visible_tiles(self, civilization):
         """
@@ -185,3 +181,33 @@ class WorldController:
             path.append((x, y))
         
         return path
+    
+    def generate_world(self, world_type="continents"):
+        """
+        Gera o mundo do jogo de acordo com o tipo especificado.
+        
+        Args:
+            world_type (str): Tipo de mundo (ex: 'continents', 'pangea', etc.)
+        """
+        terrain_types = ["plains", "hills", "mountains", "forest", "desert", "water"]
+        world = self.world
+        if not world:
+            return
+
+        for x in range(world.width):
+            for y in range(world.height):
+                terrain = random.choice(terrain_types)
+                tile = world.get_tile(x, y)
+                if tile:
+                    tile.terrain_type = terrain
+                    tile.resource = None
+                    tile.improvement = None
+
+    def new_game(self, world_type="continents"):
+        # Crie o novo estado do jogo
+        self.game_state = GameState()
+        # Agora crie o WorldController com o novo game_state
+        self.world_controller = WorldController(self.game_state)
+        # Agora pode gerar o mundo
+        self.world_controller.generate_world(world_type)
+        # ... continue com o restante da inicialização ...

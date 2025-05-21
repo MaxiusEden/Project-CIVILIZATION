@@ -1,5 +1,5 @@
 # game/models/world.py
-from game.models import BaseModel
+from game.models.base_model import BaseModel
 from game.utils.perlin_noise import PerlinNoise
 import random
 import logging
