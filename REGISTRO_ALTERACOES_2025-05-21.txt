@@ -1,0 +1,64 @@
+# Registro de Alterações - 21/05/2025
+
+## Refatorações e Melhorias
+- Otimização do `game/gui/map_view.py`:
+  - Renderização apenas dos tiles visíveis.
+  - Cache de vértices de hexágonos.
+  - Código mais legível e eficiente.
+
+- `game/utils/data_loader.py`:
+  - Adição de type hints.
+  - Integração com Pydantic para validação de dados.
+  - Cache LRU para gerenciamento de memória.
+
+- `game/utils/save_manager.py`:
+  - Substituição de pickle por JSON seguro.
+  - Verificação de integridade por hash.
+  - Implementação de autosave.
+
+- `game/utils/logger.py`:
+  - Logger com rotação de logs e configuração dinâmica de nível.
+  - Exemplo/documentação de integração.
+
+- `game/models/base_model.py`:
+  - Serialização/deserialização recursiva (to_dict/from_dict).
+  - Suporte a campos obrigatórios e validação básica.
+
+- `game/models/game_state.py`:
+  - Métodos to_dict/from_dict para integração com sistema de save.
+  - Lazy loading para dados pesados.
+
+- `data/game_settings.json`:
+  - Criação de validador Pydantic (arquivo auxiliar).
+  - Suporte a customização via `game_settings.user.json`.
+
+- `game/utils/game_settings_validator.py` (novo):
+  - Modelos Pydantic para validação de configurações.
+  - Função de merge com configurações do usuário.
+
+- `game/utils/i18n.py` (novo):
+  - Utilitário para internacionalização (i18n) e textos customizáveis.
+
+- `data/game_text.multilang.example.json` (novo):
+  - Exemplo de estrutura multilíngue para textos do jogo.
+
+- Integração do i18n na interface principal (`main_window.py`).
+
+- Atualização do `README.md`:
+  - Instruções sobre logger, i18n, autosave, validação, customização e dependências.
+
+- Criação de `requirements-dev.txt` e ajuste do `requirements.txt` para separar dependências de desenvolvimento.
+
+- Criação de `.gitignore` para evitar versionamento de arquivos/pastas indesejados.
+
+- Remoção de pastas ocultas e de cache: `.continue/`, `.vscode/`, `__pycache__/` e subpastas.
+
+- Criação de `TODO_INTEGRACOES.txt` para rastrear integrações e pendências.
+
+- Revisão e padronização dos métodos de serialização/deserialização em todos os modelos principais (`City`, `Civilization`, `Unit`, `World`, `Tile`, etc.).
+
+- Integração do autosave no fluxo do jogo e uso consistente do novo sistema de save.
+
+---
+
+**Todos os pontos do plano de refatoração e integração foram registrados e implementados nesta data.**

@@ -1,0 +1,31 @@
+# Ignore Python cache and build artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Ignore virtual environments
+.venv/
+venv/
+ENV/
+
+# Ignore editor/project files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore AI/continue plugin files
+.continue/
+
+# Ignore logs and saves (if you want to keep them local only)
+logs/
+saves/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore user config/examples
+*.user.json
