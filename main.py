@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QApplication, QMessageBox
 # Configurar o logger
 from game.utils.logger import setup_logger
 logger = setup_logger(log_file="logs/game.log")
+from game.utils.game_settings_validator import load_and_validate_settings
 
 def main():
     """
@@ -12,6 +13,18 @@ def main():
     Gerencia a inicialização da aplicação e captura exceções.
     """
     try:
+        # Validar configurações do jogo
+        try:
+            settings = load_and_validate_settings(
+                'data/game_settings.json',
+                'data/game_settings.user.json'
+            )
+            logger.info(f"Configurações do jogo validadas com sucesso. Níveis de dificuldade disponíveis: {list(settings.difficulty_levels.keys())}")
+        except Exception as e:
+            logger.critical(f"Erro de validação nas configurações do jogo: {e}")
+            show_error_message("Erro de Configuração", f"Configuração inválida: {e}")
+            return 1
+        
         # Inicializar a aplicação Qt
         app = QApplication(sys.argv)
         

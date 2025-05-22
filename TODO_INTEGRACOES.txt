@@ -1,0 +1,48 @@
+# TODOs de Integração e Ajustes Pendentes após refatoração
+
+1. **Integração do validador de game_settings**
+   - Integrar o uso de `game/utils/game_settings_validator.py` ao fluxo de inicialização do jogo (ex: em `main.py` ou onde as configurações são carregadas).
+   - Garantir que, ao carregar configurações, o merge com `game_settings.user.json` seja feito e validado.
+   - Tratar erros de validação de forma amigável para o usuário.
+
+2. **Logger**
+   - Garantir que todos os módulos principais utilizem o logger configurado em `game/utils/logger.py`.
+   - Substituir prints e loggers locais por `get_game_logger` ou `setup_logger`.
+   - Documentar no README como configurar nível de log e rotação.
+
+3. **DataLoader com Pydantic**
+   - Refatorar chamadas de carregamento de dados para usar validação Pydantic onde apropriado.
+   - Criar modelos Pydantic para outros tipos de dados além de tecnologia (ex: unidades, edifícios, recursos).
+   - Adaptar o fluxo de erro para exibir mensagens amigáveis ao usuário em caso de dados inválidos.
+
+4. **SaveManager**
+   - Garantir que todos os pontos de salvamento/carregamento do jogo utilizem o novo formato JSON seguro.
+   - Adaptar serialização/deserialização de objetos complexos (ex: GameState) para garantir compatibilidade total.
+   - Documentar no README o novo formato de save e a verificação de integridade.
+   - Integrar e documentar o autosave (ex: opção de ativar/desativar/autosave interval).
+
+5. **BaseModel**
+   - Garantir que todos os modelos do jogo herdem de `BaseModel` e implementem corretamente `to_dict`/`from_dict`.
+   - Refatorar modelos existentes para usar os métodos utilitários do `BaseModel`.
+
+6. **GameState**
+   - Garantir que o sistema de salvamento/chaveamento do SaveManager utilize `GameState.to_dict` e `from_dict`.
+   - Refatorar pontos do código que inicializam GameState para permitir inicialização a partir de dicionário (ex: ao carregar um save).
+
+7. **Documentação**
+   - Atualizar o README com instruções sobre:
+     - Customização de configurações pelo usuário.
+     - Como funciona a validação automática de configurações.
+     - Novos requisitos de dependências (ex: Pydantic).
+     - Como configurar e usar o logger.
+     - Como funciona o novo sistema de save/autosave.
+
+8. **Internacionalização (i18n) e textos customizáveis**
+   - Reestruturar o arquivo `data/game_text.json` para múltiplos idiomas (ex: `{ "pt-BR": {...}, "en-US": {...} }`).
+   - Integrar o utilitário `game/utils/i18n.py` ao carregamento de textos na interface.
+   - Permitir sobrescrita de textos via `game_text.user.json`.
+   - Adicionar opção/configuração para o usuário escolher o idioma.
+   - Atualizar README com instruções de customização e tradução.
+
+# Observação
+Esses pontos devem ser revisados e integrados após finalizar a lista principal de refatorações, garantindo que todas as melhorias estejam realmente em uso no fluxo do jogo.

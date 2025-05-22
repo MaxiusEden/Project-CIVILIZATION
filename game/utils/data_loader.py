@@ -3,6 +3,12 @@ import json
 import os
 import logging
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Type, TypeVar
+from pydantic import BaseModel, ValidationError
+from functools import lru_cache
+from game.utils.logger import get_game_logger
+
+T = TypeVar('T', bound=BaseModel)
 
 class DataLoader:
     """
@@ -20,10 +26,35 @@ class DataLoader:
             data_dir (str): Diretório contendo os arquivos de dados.
         """
         self.data_dir = Path(data_dir)
-        self.logger = logging.getLogger(self.__class__.__name__)
+        self.logger = get_game_logger(self.__class__.__name__)
         self.cache = {}  # Cache para dados já carregados
         
-    def load_json(self, filename, required_fields=None):
+    def load_json_validated(self, filename: str, model: Type[T]) -> Dict[str, T]:
+        """
+        Carrega e valida dados de um arquivo JSON usando um modelo Pydantic.
+        
+        Args:
+            filename (str): Nome do arquivo JSON.
+            model (Type[T]): Classe Pydantic para validação.
+            
+        Returns:
+            Dict[str, T]: Dados validados.
+            
+        Raises:
+            FileNotFoundError, json.JSONDecodeError, ValidationError
+        """
+        data = self.load_json(filename)
+        validated = {}
+        for key, value in data.items():
+            try:
+                validated[key] = model(**value)
+            except ValidationError as e:
+                self.logger.error(f"Erro de validação em '{filename}' para '{key}': {e}")
+                raise
+        return validated
+
+    @lru_cache(maxsize=16)
+    def load_json(self, filename: str, required_fields: Optional[List[str]] = None) -> Dict[str, Any]:
         """
         Carrega dados de um arquivo JSON.
         
@@ -69,7 +100,7 @@ class DataLoader:
             self.logger.error(f"Arquivo JSON inválido: {file_path}")
             raise
     
-    def save_json(self, filename, data):
+    def save_json(self, filename: str, data: Dict[str, Any]) -> bool:
         """
         Salva dados em um arquivo JSON.
         
@@ -97,7 +128,7 @@ class DataLoader:
             self.logger.error(f"Erro ao salvar arquivo {file_path}: {e}")
             return False
     
-    def get_technologies(self):
+    def get_technologies(self) -> Dict[str, Any]:
         """
         Carrega dados de tecnologias.
         
@@ -106,7 +137,7 @@ class DataLoader:
         """
         return self.load_json("technologies.json", ["cost", "prerequisites"])
     
-    def get_units(self):
+    def get_units(self) -> Dict[str, Any]:
         """
         Carrega dados de unidades.
         
@@ -115,7 +146,7 @@ class DataLoader:
         """
         return self.load_json("units.json", ["name", "cost", "movement"])
     
-    def get_buildings(self):
+    def get_buildings(self) -> Dict[str, Any]:
         """
         Carrega dados de edifícios.
         
@@ -124,10 +155,10 @@ class DataLoader:
         """
         return self.load_json("buildings.json", ["name", "cost"])
     
-    def get_tech_tree(self):
+    def get_tech_tree(self) -> Dict[str, Any]:
         """Compatibilidade: retorna o mesmo que get_technologies."""
         return self.get_technologies()
-    def get_terrains(self):
+    def get_terrains(self) -> Dict[str, Any]:
         """
         Carrega dados de terrenos.
         
@@ -197,10 +228,16 @@ class DataLoader:
             self.save_json("terrains.json", terrains)
             return terrains
     
-    def load_config(self):
+    def load_config(self) -> Dict[str, Any]:
+        """
+        Carrega configurações do jogo.
+        
+        Returns:
+            dict: Configurações do jogo.
+        """
         import config
         return {k: getattr(config, k) for k in dir(config) if k.isupper()}
-    def get_resources(self):
+    def get_resources(self) -> Dict[str, Any]:
         """
         Carrega dados de recursos.
         
@@ -260,3 +297,14 @@ class DataLoader:
             }
             self.save_json("resources.json", resources)
             return resources
+
+# Exemplo de modelo Pydantic para validação de tecnologia
+class TechnologyModel(BaseModel):
+    name: str
+    cost: int
+    prerequisites: List[str]
+    # Adicione outros campos conforme necessário
+
+# Exemplo de uso:
+# loader = DataLoader()
+# techs = loader.load_json_validated("technologies.json", TechnologyModel)

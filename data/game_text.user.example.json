@@ -1,0 +1,9 @@
+# Exemplo de game_text.user.json para sobrescrita de textos customizados
+{
+  "pt-BR": {
+    "main_menu": {
+      "title": "Minha Versão Customizada do Civilization"
+    }
+  }
+}
+# O usuário pode criar esse arquivo para sobrescrever apenas os textos desejados.

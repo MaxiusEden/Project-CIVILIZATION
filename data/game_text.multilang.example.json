@@ -1,0 +1,21 @@
+# Exemplo de estrutura multilíngue para data/game_text.json
+{
+  "pt-BR": {
+    "main_menu": {
+      "title": "Civilization Clone",
+      "new_game": "Novo Jogo"
+      // ...restante dos textos em português...
+    }
+    // ...restante das seções...
+  },
+  "en-US": {
+    "main_menu": {
+      "title": "Civilization Clone",
+      "new_game": "New Game"
+      // ...rest of the texts in English...
+    }
+    // ...other sections...
+  }
+}
+
+# Para migrar, mova o conteúdo atual para dentro de "pt-BR" e adicione outros idiomas conforme necessário.

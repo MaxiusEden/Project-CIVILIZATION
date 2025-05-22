@@ -1,15 +1,16 @@
+# requirements.txt
 # Dependências principais
 colorama>=0.4.4
 pyyaml>=6.0
 numpy>=1.22.0
+PyQt5>=5.15.0
+PyOpenGL>=3.1.5
+PyOpenGL-accelerate>=3.1.5
+pydantic>=2.0
 
-# Dependências de desenvolvimento (opcional)
+# Dependências de desenvolvimento
+# (mover para requirements-dev.txt se desejar separar)
 pytest>=7.0.0
 pytest-cov>=3.0.0
 flake8>=4.0.0
 black>=22.1.0
-
-PyQt5>=5.15.0
-PyOpenGL>=3.1.5
-PyOpenGL-accelerate>=3.1.5
-numpy>=1.19.0

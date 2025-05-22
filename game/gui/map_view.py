@@ -45,6 +45,9 @@ class MapGLWidget(QOpenGLWidget):
         # Tile highlighting
         self.highlighted_tile = None
         self.selected_tile = None
+
+        # Tile vertex cache
+        self._hex_vertex_cache = {}
     
     def initializeGL(self):
         """Initialize OpenGL settings."""
@@ -113,69 +116,91 @@ class MapGLWidget(QOpenGLWidget):
         # Render selection/highlighting
         self.render_selection(world)
     
-    def render_terrain(self, world):
-        """Render the terrain of the world."""
-        for x in range(world.width):
-            for y in range(world.height):
-                tile = world.get_tile(x, y)
-                if not tile:
-                    continue
-                
-                # Set tile color based on terrain type
-                terrain_type = tile.terrain_type
-                if terrain_type == "ocean":
-                    glColor3f(0.0, 0.2, 0.8)
-                elif terrain_type == "plains":
-                    glColor3f(0.8, 0.8, 0.2)
-                elif terrain_type == "grassland":
-                    glColor3f(0.2, 0.8, 0.2)
-                elif terrain_type == "desert":
-                    glColor3f(0.9, 0.9, 0.5)
-                elif terrain_type == "tundra":
-                    glColor3f(0.9, 0.9, 0.9)
-                elif terrain_type == "snow":
-                    glColor3f(1.0, 1.0, 1.0)
-                elif terrain_type == "mountain":
-                    glColor3f(0.5, 0.5, 0.5)
-                elif terrain_type == "hills":
-                    glColor3f(0.6, 0.4, 0.2)
-                elif terrain_type == "forest":
-                    glColor3f(0.0, 0.5, 0.0)
-                elif terrain_type == "jungle":
-                                        glColor3f(0.0, 0.4, 0.0)
-                else:
-                    glColor3f(0.5, 0.5, 0.5)  # Default gray
-                
-                # Calculate elevation
-                elevation = 0.0
-                if terrain_type == "hills":
-                    elevation = 0.3
-                elif terrain_type == "mountain":
-                    elevation = 0.8
-                
-                # Draw the tile as a quad with appropriate elevation
-                self.draw_hex_tile(x, y, elevation)
-    
-    def draw_hex_tile(self, x, y, elevation=0.0):
-        """Draw a hexagonal tile at the given coordinates."""
-        # Hexagon geometry
+    def get_hex_vertices(self, x, y, elevation=0.0):
+        """Get cached hex vertices or compute them if not cached."""
+        key = (x, y, elevation)
+        if key in self._hex_vertex_cache:
+            return self._hex_vertex_cache[key]
         hex_size = 1.0
         hex_height = hex_size * math.sqrt(3)
-        
-        # Offset for hex grid
         offset_x = 0 if y % 2 == 0 else hex_size * 1.5
-        
-        # Calculate center position
         center_x = x * hex_size * 3 + offset_x
         center_y = y * hex_height
-        
-        # Draw hexagon
-        glBegin(GL_POLYGON)
+        vertices = []
         for i in range(6):
             angle = 2 * math.pi / 6 * i
             vertex_x = center_x + hex_size * math.cos(angle)
             vertex_y = center_y + hex_size * math.sin(angle)
-            glVertex3f(vertex_x, vertex_y, elevation)
+            vertices.append((vertex_x, vertex_y, elevation))
+        self._hex_vertex_cache[key] = vertices
+        return vertices
+
+    def get_visible_tiles(self, world):
+        """Calculate which tiles are visible in the current viewport."""
+        # Estimativa simples baseada na altura da câmera
+        if not world:
+            return []
+        hex_size = 1.0
+        hex_height = hex_size * math.sqrt(3)
+        # O campo de visão depende da altura da câmera
+        fov_tiles = int(self.camera_height * 2.5)  # Ajuste conforme necessário
+        cam_x = int(round(self.camera_x / (hex_size * 3)))
+        cam_y = int(round(self.camera_y / hex_height))
+        tiles = []
+        for dx in range(-fov_tiles, fov_tiles + 1):
+            for dy in range(-fov_tiles, fov_tiles + 1):
+                x = cam_x + dx
+                y = cam_y + dy
+                if 0 <= x < world.width and 0 <= y < world.height:
+                    tiles.append((x, y))
+        return tiles
+
+    def render_terrain(self, world):
+        """Render only visible terrain tiles using cache."""
+        for x, y in self.get_visible_tiles(world):
+            tile = world.get_tile(x, y)
+            if not tile:
+                continue
+            terrain_type = tile.terrain_type
+            if terrain_type == "ocean":
+                glColor3f(0.0, 0.2, 0.8)
+            elif terrain_type == "plains":
+                glColor3f(0.8, 0.8, 0.2)
+            elif terrain_type == "grassland":
+                glColor3f(0.2, 0.8, 0.2)
+            elif terrain_type == "desert":
+                glColor3f(0.9, 0.9, 0.5)
+            elif terrain_type == "tundra":
+                glColor3f(0.9, 0.9, 0.9)
+            elif terrain_type == "snow":
+                glColor3f(1.0, 1.0, 1.0)
+            elif terrain_type == "mountain":
+                glColor3f(0.5, 0.5, 0.5)
+            elif terrain_type == "hills":
+                glColor3f(0.6, 0.4, 0.2)
+            elif terrain_type == "forest":
+                glColor3f(0.0, 0.5, 0.0)
+            elif terrain_type == "jungle":
+                glColor3f(0.0, 0.4, 0.0)
+            else:
+                glColor3f(0.5, 0.5, 0.5)  # Default gray
+            
+            # Calculate elevation
+            elevation = 0.0
+            if terrain_type == "hills":
+                elevation = 0.3
+            elif terrain_type == "mountain":
+                elevation = 0.8
+            
+            # Draw the tile as a quad with appropriate elevation
+            self.draw_hex_tile(x, y, elevation)
+    
+    def draw_hex_tile(self, x, y, elevation=0.0):
+        """Draw a hexagonal tile at the given coordinates using cached vertices."""
+        vertices = self.get_hex_vertices(x, y, elevation)
+        glBegin(GL_POLYGON)
+        for vx, vy, vz in vertices:
+            glVertex3f(vx, vy, vz)
         glEnd()
     
     def render_grid(self, world):

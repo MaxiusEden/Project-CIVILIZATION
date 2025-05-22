@@ -389,14 +389,8 @@ class Civilization(BaseModel):
         return actions
     
     def to_dict(self):
-        """
-        Converte a civilização para um dicionário para serialização.
-        
-        Returns:
-            dict: Representação da civilização como dicionário.
-        """
-        data = super().to_dict()
-        data.update({
+        return {
+            'id': self.id,
             'name': self.name,
             'leader_name': self.leader_name,
             'color': self.color,
@@ -405,48 +399,36 @@ class Civilization(BaseModel):
             'science': self.science,
             'culture': self.culture,
             'happiness': self.happiness,
-            'cities': [city.id for city in self.cities],
-            'units': [unit.id for unit in self.units],
-            'technologies': self.technologies.copy(),
-            'researching': self.researching.copy() if self.researching else None,
-            'known_civs': self.known_civs.copy(),
-            'relations': self.relations.copy(),
+            'cities': [city.to_dict() for city in self.cities],
+            'units': [unit.to_dict() for unit in self.units],
+            'technologies': self.technologies,
+            'researching': self.researching,
+            'known_civs': self.known_civs,
+            'relations': self.relations,
             'score': self.score,
             'turn_founded': self.turn_founded
-        })
-        return data
-    
+        }
+
     @classmethod
     def from_dict(cls, data):
-        """
-        Cria uma instância da civilização a partir de um dicionário.
-        
-        Args:
-            data (dict): Dicionário contendo os dados da civilização.
-            
-        Returns:
-            Civilization: Nova instância da civilização.
-        """
-        civ = super().from_dict(data)
-        civ.name = data.get('name', 'Unknown')
-        civ.leader_name = data.get('leader_name', 'Unknown')
-        civ.color = data.get('color', '#FFFFFF')
-        civ.is_ai = data.get('is_ai', False)
-        
-        civ.gold = data.get('gold', 0)
-        civ.science = data.get('science', 0)
-        civ.culture = data.get('culture', 0)
-        civ.happiness = data.get('happiness', 0)
-        
-        # Referências a outros objetos serão resolvidas posteriormente
-        civ._city_ids = data.get('cities', [])
-        civ._unit_ids = data.get('units', [])
-        
-        civ.technologies = data.get('technologies', [])
-        civ.researching = data.get('researching')
-        civ.known_civs = data.get('known_civs', [])
-        civ.relations = data.get('relations', {})
-        civ.score = data.get('score', 0)
-        civ.turn_founded = data.get('turn_founded', 0)
-        
-        return civ
+        obj = cls(
+            data['name'],
+            data['leader_name'],
+            data.get('color', '#FFFFFF'),
+            data.get('is_ai', False)
+        )
+        obj.id = data.get('id', obj.id)
+        obj.gold = data.get('gold', 0)
+        obj.science = data.get('science', 0)
+        obj.culture = data.get('culture', 0)
+        obj.happiness = data.get('happiness', 0)
+        # Cidades e unidades devem ser desserializadas após world/game_state
+        obj.cities = []
+        obj.units = []
+        obj.technologies = data.get('technologies', [])
+        obj.researching = data.get('researching')
+        obj.known_civs = data.get('known_civs', [])
+        obj.relations = data.get('relations', {})
+        obj.score = data.get('score', 0)
+        obj.turn_founded = data.get('turn_founded', 0)
+        return obj

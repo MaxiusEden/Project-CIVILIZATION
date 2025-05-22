@@ -89,3 +89,49 @@ Project-CIVILIZATION/
 ## Licença
 
 Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## Novas Funcionalidades e Integrações
+
+### 1. Validação e Customização de Configurações
+- O jogo valida automaticamente o arquivo `data/game_settings.json` ao iniciar.
+- O usuário pode criar um arquivo `data/game_settings.user.json` para sobrescrever configurações específicas.
+- Erros de configuração são exibidos de forma amigável.
+
+### 2. Logger Avançado
+- O sistema de logs suporta rotação automática e configuração de nível via variável de ambiente `LOG_LEVEL`.
+- Todos os logs são salvos em `logs/game.log` por padrão.
+- Para customizar, edite o início do `main.py` ou use variáveis de ambiente.
+
+### 3. Internacionalização (i18n)
+- O arquivo `data/game_text.json` pode ser estruturado para múltiplos idiomas (exemplo em `data/game_text.multilang.example.json`).
+- O idioma pode ser definido em `config.py` (ex: `LANG = 'pt-BR'`).
+- O usuário pode sobrescrever textos em `data/game_text.user.json`.
+- Para adicionar um novo idioma, siga o exemplo e adicione uma nova chave de idioma no JSON.
+
+### 4. Salvamento Seguro e Autosave
+- O sistema de salvamento utiliza JSON seguro, com verificação de integridade por hash.
+- O autosave pode ser ativado e configurado no código.
+- Os saves ficam na pasta `saves/`.
+
+### 5. Tipagem e Validação de Dados
+- Dados carregados do JSON podem ser validados com Pydantic.
+- Modelos de dados principais suportam serialização/deserialização robusta.
+
+### 6. Separação de Dependências
+- Dependências principais estão em `requirements.txt`.
+- Dependências de desenvolvimento estão em `requirements-dev.txt`.
+
+### 7. Como customizar textos e configurações
+- Edite ou crie `data/game_text.user.json` para textos.
+- Edite ou crie `data/game_settings.user.json` para configurações.
+- Consulte os exemplos de estrutura nos arquivos `.example.json`.
+
+## Dependências
+
+- Dependências principais estão em `requirements.txt`.
+- Dependências de desenvolvimento estão em `requirements-dev.txt`.
+- Instale ambas para desenvolvimento completo:
+```bash
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
+```

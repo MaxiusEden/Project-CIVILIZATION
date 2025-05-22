@@ -279,14 +279,8 @@ class City(BaseModel):
         return worked_tiles
     
     def to_dict(self):
-        """
-        Converte a cidade para um dicionário para serialização.
-        
-        Returns:
-            dict: Representação da cidade como dicionário.
-        """
-        data = super().to_dict()
-        data.update({
+        return {
+            'id': self.id,
             'x': self.x,
             'y': self.y,
             'name': self.name,
@@ -296,44 +290,25 @@ class City(BaseModel):
             'food': self.food,
             'food_needed': self.food_needed,
             'production': self.production,
-            'producing': self.producing.copy() if self.producing else None,
-            'buildings': self.buildings.copy(),
-            'worked_tiles': [(tile.x, tile.y) for tile in self.worked_tiles],
+            'producing': self.producing,
+            'buildings': self.buildings,
+            'worked_tiles': self.worked_tiles,
             'founded_turn': self.founded_turn,
             'last_growth_turn': self.last_growth_turn
-        })
-        return data
-    
+        }
+
     @classmethod
     def from_dict(cls, data):
-        """
-        Cria uma instância da cidade a partir de um dicionário.
-        
-        Args:
-            data (dict): Dicionário contendo os dados da cidade.
-            
-        Returns:
-            City: Nova instância da cidade.
-        """
-        city = super().from_dict(data)
-        city.x = data.get('x', 0)
-        city.y = data.get('y', 0)
-        city.name = data.get('name', 'Unknown')
-        
-        city.population = data.get('population', 1)
-        city.health = data.get('health', 100)
-        city.food = data.get('food', 0)
-        city.food_needed = data.get('food_needed', 10)
-        city.production = data.get('production', 0)
-        
-        city.producing = data.get('producing')
-        city.buildings = data.get('buildings', [])
-        
-        # Referências a outros objetos serão resolvidas posteriormente
-        city._owner_id = data.get('owner')
-        city._worked_tile_coords = data.get('worked_tiles', [])
-        
-        city.founded_turn = data.get('founded_turn', 0)
-        city.last_growth_turn = data.get('last_growth_turn', 0)
-        
-        return city
+        obj = cls(data['x'], data['y'], data['name'])
+        obj.id = data.get('id', obj.id)
+        obj.population = data.get('population', 1)
+        obj.health = data.get('health', 100)
+        obj.food = data.get('food', 0)
+        obj.food_needed = data.get('food_needed', 10)
+        obj.production = data.get('production', 0)
+        obj.producing = data.get('producing')
+        obj.buildings = data.get('buildings', [])
+        obj.worked_tiles = data.get('worked_tiles', [])
+        obj.founded_turn = data.get('founded_turn', 0)
+        obj.last_growth_turn = data.get('last_growth_turn', 0)
+        return obj

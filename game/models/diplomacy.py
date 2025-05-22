@@ -2,7 +2,9 @@
 Modelo para diplomacia entre civilizações.
 """
 
-class DiplomaticRelation:
+from game.models.base_model import BaseModel
+
+class DiplomaticRelation(BaseModel):
     """
     Representa a relação diplomática entre duas civilizações.
     """
@@ -164,10 +166,10 @@ class DiplomaticRelation:
             'civ2_id': self.civ2_id,
             'level': self.level,
             'score': self.score,
-            'agreements': self.agreements.copy(),
-            'history': self.history.copy()
+            'agreements': self.agreements,
+            'history': self.history,
         }
-    
+
     @classmethod
     def from_dict(cls, data):
         """
@@ -179,11 +181,15 @@ class DiplomaticRelation:
         Returns:
             DiplomaticRelation: Nova instância de DiplomaticRelation.
         """
-        relation = cls(data['civ1_id'], data['civ2_id'], data['level'])
-        relation.score = data['score']
-        relation.agreements = data['agreements']
-        relation.history = data['history']
-        return relation
+        obj = cls(
+            civ1_id=data['civ1_id'],
+            civ2_id=data['civ2_id'],
+            level=data.get('level', 'neutral')
+        )
+        obj.score = data.get('score', obj._level_to_score(obj.level))
+        obj.agreements = data.get('agreements', {})
+        obj.history = data.get('history', [])
+        return obj
 
 
 class DiplomacyManager:

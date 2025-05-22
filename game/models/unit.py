@@ -1,8 +1,9 @@
 # game/models/unit.py
+from game.models.base_model import BaseModel
 import logging
 import uuid
 
-class Unit:
+class Unit(BaseModel):
     """
     Representa uma unidade no jogo.
     
@@ -10,16 +11,8 @@ class Unit:
     e pode se mover, atacar e realizar ações especiais.
     """
     
-    def __init__(self, x, y, unit_type):
-        """
-        Inicializa uma nova unidade.
-        
-        Args:
-            x (int): Coordenada X da unidade.
-            y (int): Coordenada Y da unidade.
-            unit_type (str): Tipo da unidade.
-        """
-        self.id = str(uuid.uuid4())
+    def __init__(self, x, y, unit_type, id=None):
+        super().__init__(id)
         self.x = x
         self.y = y
         self.type = unit_type
@@ -304,8 +297,8 @@ class Unit:
         Returns:
             dict: Representação da unidade como dicionário.
         """
-        data = super().to_dict()
-        data.update({
+        return {
+            'id': self.id,
             'x': self.x,
             'y': self.y,
             'type': self.type,
@@ -321,10 +314,9 @@ class Unit:
             'is_fortified': self.is_fortified,
             'is_sleeping': self.is_sleeping,
             'experience': self.experience,
-            'promotions': self.promotions.copy()
-        })
-        return data
-    
+            'promotions': self.promotions
+        }
+
     @classmethod
     def from_dict(cls, data):
         """
@@ -336,27 +328,22 @@ class Unit:
         Returns:
             Unit: Nova instância da unidade.
         """
-        unit = super().from_dict(data)
-        unit.x = data.get('x', 0)
-        unit.y = data.get('y', 0)
-        unit.type = data.get('type', 'warrior')
-        
-        unit.health = data.get('health', 100)
-        unit.movement = data.get('movement', 0)
-        unit.max_movement = data.get('max_movement', 0)
-        unit.strength = data.get('strength', 0)
-        unit.ranged_strength = data.get('ranged_strength', 0)
-        unit.range = data.get('range', 0)
-        
-        unit.moves_left = data.get('moves_left', 0)
-        unit.has_acted = data.get('has_acted', False)
-        unit.is_fortified = data.get('is_fortified', False)
-        unit.is_sleeping = data.get('is_sleeping', False)
-        
-        unit.experience = data.get('experience', 0)
-        unit.promotions = data.get('promotions', [])
-        
-        # Referências a outros objetos serão resolvidas posteriormente
-        unit._owner_id = data.get('owner')
-        
-        return unit
+        obj = cls(
+            data['x'],
+            data['y'],
+            data['type'],
+            id=data.get('id')
+        )
+        obj.health = data.get('health', 100)
+        obj.movement = data.get('movement', 0)
+        obj.max_movement = data.get('max_movement', 0)
+        obj.strength = data.get('strength', 0)
+        obj.ranged_strength = data.get('ranged_strength', 0)
+        obj.range = data.get('range', 0)
+        obj.moves_left = data.get('moves_left', 0)
+        obj.has_acted = data.get('has_acted', False)
+        obj.is_fortified = data.get('is_fortified', False)
+        obj.is_sleeping = data.get('is_sleeping', False)
+        obj.experience = data.get('experience', 0)
+        obj.promotions = data.get('promotions', [])
+        return obj

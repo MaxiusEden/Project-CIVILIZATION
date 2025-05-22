@@ -3,7 +3,10 @@ import json
 import os
 import logging
 from datetime import datetime
-import pickle
+import hashlib
+import threading
+import time
+from game.utils.logger import get_game_logger
 
 class SaveManager:
     """
@@ -21,13 +24,18 @@ class SaveManager:
             save_dir (str): Diretório para salvar os jogos.
         """
         self.save_dir = save_dir
-        self.logger = logging.getLogger(self.__class__.__name__)
+        self.logger = get_game_logger(self.__class__.__name__)
         
         # Cria o diretório de salvamentos se não existir
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)
     
-    def save_game(self, game_state, save_name=None):
+    def _compute_hash(self, data: dict) -> str:
+        """Gera um hash SHA256 do conteúdo serializado."""
+        json_bytes = json.dumps(data, sort_keys=True, ensure_ascii=False).encode('utf-8')
+        return hashlib.sha256(json_bytes).hexdigest()
+
+    def save_game(self, game_state, save_name=None) -> str | None:
         """
         Salva o estado atual do jogo.
         
@@ -54,16 +62,17 @@ class SaveManager:
             # Adiciona metadados ao salvamento
             save_data = {
                 'metadata': {
-                    'version': '1.0',
+                    'version': '2.0',
                     'timestamp': datetime.now().isoformat(),
                     'name': save_name
                 },
                 'game_state': game_state
             }
-            
-            # Salva os dados usando pickle para preservar objetos Python
-            with open(save_path, 'wb') as f:
-                pickle.dump(save_data, f)
+            # Calcula hash de integridade
+            save_data['metadata']['integrity_hash'] = self._compute_hash(save_data['game_state'])
+            # Salva como JSON
+            with open(save_path, 'w', encoding='utf-8') as f:
+                json.dump(save_data, f, indent=2, ensure_ascii=False)
             
             self.logger.info(f"Jogo salvo com sucesso em: {save_path}")
             return save_path
@@ -71,8 +80,8 @@ class SaveManager:
         except Exception as e:
             self.logger.error(f"Erro ao salvar jogo: {e}", exc_info=True)
             return None
-    
-    def load_game(self, save_name):
+
+    def load_game(self, save_name: str) -> dict | None:
         """
         Carrega um jogo salvo.
         
@@ -95,9 +104,16 @@ class SaveManager:
                 self.logger.error(f"Arquivo de salvamento não encontrado: {save_path}")
                 return None
             
-            # Carrega os dados usando pickle
-            with open(save_path, 'rb') as f:
-                save_data = pickle.load(f)
+            # Carrega os dados usando JSON
+            with open(save_path, 'r', encoding='utf-8') as f:
+                save_data = json.load(f)
+            
+            # Verifica integridade
+            expected_hash = save_data['metadata'].get('integrity_hash')
+            actual_hash = self._compute_hash(save_data['game_state'])
+            if expected_hash != actual_hash:
+                self.logger.error(f"Falha na verificação de integridade do save: {save_name}")
+                return None
             
             self.logger.info(f"Jogo carregado com sucesso de: {save_path}")
             return save_data['game_state']
@@ -105,6 +121,19 @@ class SaveManager:
         except Exception as e:
             self.logger.error(f"Erro ao carregar jogo: {e}", exc_info=True)
             return None
+    
+    def autosave(self, game_state_getter, interval_sec=120):
+        """Inicia um autosave em background a cada interval_sec segundos."""
+        def _autosave_loop():
+            while True:
+                try:
+                    state = game_state_getter()
+                    self.save_game(state, save_name='autosave')
+                except Exception as e:
+                    self.logger.error(f"Erro no autosave: {e}")
+                time.sleep(interval_sec)
+        t = threading.Thread(target=_autosave_loop, daemon=True)
+        t.start()
     
     def list_saves(self):
         """
@@ -123,8 +152,8 @@ class SaveManager:
                     
                     try:
                         # Tenta carregar os metadados do salvamento
-                        with open(save_path, 'rb') as f:
-                            save_data = pickle.load(f)
+                        with open(save_path, 'r', encoding='utf-8') as f:
+                            save_data = json.load(f)
                             metadata = save_data.get('metadata', {})
                             
                             saves.append({
